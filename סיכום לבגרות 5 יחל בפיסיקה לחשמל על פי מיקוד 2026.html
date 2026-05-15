@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>סיכום חשמל ומגנטיות – בגרות 5 יחידות 2026</title>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$']],
+        displayMath: [['$$', '$$']],
+        tags: 'ams'
+      },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" crossorigin="anonymous"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap');
+ /* 2. Reset default browser spaces so elements don't shift unexpectedly */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f4f4f9;
+            font-family: sans-serif;
+            width: 100%;
+        }
+
+        /* 3. The main wrapper that centers your site and stays narrow on phones */
+        .content-box {
+            width: 90%;          /* Leaves a clean 5% margin space on both sides */
+            max-width: 480px;    /* Stops growing wider than 480px on desktop or tablet */
+            margin: 40px auto;   /* Centers the entire layout block horizontally */
+            background: #ffffff; /* Contrast background to see the box boundaries */
+            padding: 24px;       /* Breathing room between the text and the box edge */
+            border-radius: 8px;  /* Smooths the corners of your container */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Adds depth */
+            
+            /* 4. Keeps text and long URLs safely contained inside the box borders */
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        /* 5. Fluid typography ensures headings shrink naturally on small screens */
+        h1, h2, h3 {
+            font-size: clamp(1.5rem, 6vw, 2.2rem); 
+            line-height: 1.2;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        p {
+            font-size: clamp(1rem, 4vw, 1.1rem);
+            line-height: 1.6;
+            margin-bottom: 12px;
+            color: #4a4a4a;
+            white-space: normal; /* Forces text lines to wrap naturally */
+        }
+    :root {
+      --blue-dark:   #1a3a5c;
+      --blue-mid:    #2563a8;
+      --blue-light:  #dbeafe;
+      --green-dark:  #14532d;
+      --green-mid:   #16a34a;
+      --green-light: #dcfce7;
+      --orange-dark: #7c2d12;
+      --orange-mid:  #ea580c;
+      --orange-light:#ffedd5;
+      --red-dark:    #7f1d1d;
+      --red-mid:     #dc2626;
+      --red-light:   #fee2e2;
+      --purple-dark: #4c1d95;
+      --purple-mid:  #7c3aed;
+      --purple-light:#ede9fe;
+      --gray-bg:     #f8fafc;
+      --gray-border: #e2e8f0;
+      --text:        #1e293b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text);
+      background: #fff;
+      direction: rtl;
+    }
+
+    /* ─── Cover ─────────────────────────────────── */
+    .cover {
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-mid) 60%, #1e40af 100%);
+      color: #fff;
+      text-align: center;
+      padding: 60px 40px 50px;
+      margin-bottom: 0;
+    }
+    .cover h1 { font-size: 2.6rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1.3; }
+    .cover .sub { font-size: 1.15rem; margin-top: 14px; opacity: .88; }
+    .cover .badges { display: flex; gap: 12px; justify-content: center; margin-top: 22px; flex-wrap: wrap; }
+    .cover .badge {
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 20px;
+      padding: 5px 18px;
+      font-size: .9rem;
+    }
+
+    /* ─── TOC ────────────────────────────────────── */
+    .toc {
+      background: var(--blue-light);
+      border-right: 5px solid var(--blue-mid);
+      margin: 32px auto;
+      max-width: 860px;
+      border-radius: 8px;
+      padding: 26px 32px;
+    }
+    .toc h2 { font-size: 1.1rem; font-weight: 700; color: var(--blue-dark); margin-bottom: 12px; }
+    .toc ol { padding-right: 22px; }
+    .toc li { margin-bottom: 5px; }
+    .toc a { color: var(--blue-mid); text-decoration: none; font-weight: 500; }
+    .toc a:hover { text-decoration: underline; }
+
+    /* ─── Main layout ────────────────────────────── */
+    .content { max-width: 900px; margin: 0 auto; padding: 0 28px 60px; }
+
+    /* ─── Chapter heading ─────────────────────────── */
+    .chapter-header {
+      margin: 48px 0 0;
+      padding: 22px 28px 18px;
+      border-radius: 10px 10px 0 0;
+      color: #fff;
+    }
+    .ch-electrostatics  { background: linear-gradient(90deg, #1a3a5c, #2563a8); }
+    .ch-circuits        { background: linear-gradient(90deg, #14532d, #16a34a); }
+    .ch-magnetism       { background: linear-gradient(90deg, #4c1d95, #7c3aed); }
+    .ch-formulas        { background: linear-gradient(90deg, #7c2d12, #ea580c); }
+    .chapter-header h2  { font-size: 1.7rem; font-weight: 800; }
+    .chapter-header .ch-num { font-size: .85rem; opacity: .8; margin-bottom: 4px; letter-spacing: 1px; text-transform: uppercase; }
+
+    /* ─── Section box ─────────────────────────────── */
+    .section {
+      border: 1px solid var(--gray-border);
+      border-top: none;
+      border-radius: 0 0 10px 10px;
+      padding: 28px;
+      margin-bottom: 10px;
+      background: #fff;
+    }
+
+    /* ─── Sub-section ─────────────────────────────── */
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 28px 0 10px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid var(--gray-border);
+    }
+    h4 { font-size: 1rem; font-weight: 600; margin: 20px 0 8px; }
+
+    /* ─── Cards ──────────────────────────────────── */
+    .card {
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin: 14px 0;
+    }
+    .card-blue   { background: var(--blue-light);   border-right: 4px solid var(--blue-mid); }
+    .card-green  { background: var(--green-light);  border-right: 4px solid var(--green-mid); }
+    .card-orange { background: var(--orange-light); border-right: 4px solid var(--orange-mid); }
+    .card-red    { background: var(--red-light);    border-right: 4px solid var(--red-mid); }
+    .card-purple { background: var(--purple-light); border-right: 4px solid var(--purple-mid); }
+    .card-gray   { background: var(--gray-bg);      border-right: 4px solid #94a3b8; border: 1px solid var(--gray-border); }
+
+    .card-title {
+      font-weight: 700;
+      font-size: .85rem;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .card-blue   .card-title { color: var(--blue-dark); }
+    .card-green  .card-title { color: var(--green-dark); }
+    .card-orange .card-title { color: var(--orange-dark); }
+    .card-red    .card-title { color: var(--red-dark); }
+    .card-purple .card-title { color: var(--purple-dark); }
+
+    /* ─── Formula grid ──────────────────────────── */
+    .formula-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+      margin: 12px 0;
+    }
+    .formula-item {
+      background: var(--gray-bg);
+      border: 1px solid var(--gray-border);
+      border-radius: 7px;
+      padding: 12px 16px;
+    }
+    .formula-item .f-name { font-size: .8rem; color: #64748b; margin-bottom: 4px; font-weight: 600; }
+
+    /* ─── Table ──────────────────────────────────── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: .93rem;
+    }
+    th {
+      background: var(--blue-dark);
+      color: #fff;
+      padding: 9px 14px;
+      text-align: right;
+      font-weight: 600;
+    }
+    td {
+      padding: 8px 14px;
+      border-bottom: 1px solid var(--gray-border);
+    }
+    tr:nth-child(even) td { background: var(--gray-bg); }
+
+    /* ─── Steps ──────────────────────────────────── */
+    .steps { counter-reset: step; }
+    .step {
+      display: flex;
+      gap: 14px;
+      margin: 10px 0;
+      align-items: flex-start;
+    }
+    .step-num {
+      counter-increment: step;
+      content: counter(step);
+      min-width: 30px;
+      height: 30px;
+      background: var(--blue-mid);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: .85rem;
+      flex-shrink: 0;
+    }
+    .step-body { flex: 1; min-width: 0; padding-top: 4px; }
+
+    /* ─── Warning / tip ─────────────────────────── */
+    .warning {
+      background: #fffbeb;
+      border: 1px solid #fcd34d;
+      border-right: 4px solid #f59e0b;
+      border-radius: 7px;
+      padding: 12px 16px;
+      margin: 8px 0;
+    }
+    .warning::before { content: "⚠️  "; }
+    .tip {
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+      border-right: 4px solid var(--green-mid);
+      border-radius: 7px;
+      padding: 12px 16px;
+      margin: 8px 0;
+    }
+    .tip::before { content: "✅  "; }
+
+    /* ─── Graph description ─────────────────────── */
+    .graph-box {
+      border: 2px dashed var(--blue-mid);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 14px 0;
+      background: #f0f7ff;
+    }
+    .graph-box .graph-title {
+      font-weight: 700;
+      color: var(--blue-dark);
+      margin-bottom: 8px;
+      font-size: .95rem;
+    }
+
+    /* ─── Question / answer ─────────────────────── */
+    .question-box {
+      background: #fefce8;
+      border: 2px solid #fde047;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 14px 0;
+    }
+    .question-box .q-label {
+      font-weight: 800;
+      font-size: .9rem;
+      color: #713f12;
+      margin-bottom: 8px;
+      letter-spacing: .5px;
+    }
+    .answer-box {
+      background: #f0fdf4;
+      border: 2px solid #4ade80;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 14px 0;
+    }
+    .answer-box .a-label {
+      font-weight: 800;
+      font-size: .9rem;
+      color: var(--green-dark);
+      margin-bottom: 8px;
+      letter-spacing: .5px;
+    }
+
+    /* ─── Equation display ───────────────────────── */
+    .eq { text-align: center; margin: 12px 0; overflow-x: auto; }
+    .eq-inline { display: inline; }
+
+    /* ─── Danger list ────────────────────────────── */
+    .danger-list { list-style: none; padding: 0; }
+    .danger-list li { padding: 7px 0 7px 0; border-bottom: 1px solid var(--red-light); }
+    .danger-list li::before { content: "🔴  "; }
+
+    /* ─── Formula sheet ──────────────────────────── */
+    .fs-group {
+      margin: 20px 0;
+    }
+    .fs-group h3 {
+      background: var(--blue-dark);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 1rem;
+      border: none;
+    }
+    .fs-row {
+      display: grid;
+      grid-template-columns: 220px 1fr 180px;
+      gap: 0;
+      border-bottom: 1px solid var(--gray-border);
+    }
+    .fs-row:first-of-type { border-top: 1px solid var(--gray-border); }
+    .fs-cell {
+      padding: 8px 14px;
+      font-size: .88rem;
+    }
+    .fs-cell.formula-col { background: #f8fafc; font-family: monospace; }
+    .fs-head { background: #e2e8f0; font-weight: 700; font-size: .8rem; }
+
+    p { margin-bottom: 8px; }
+    ul, ol { padding-right: 22px; margin-bottom: 8px; }
+    li { margin-bottom: 4px; }
+
+    @media print {
+      .chapter-header { break-before: page; }
+      .section { break-inside: avoid; }
+    }
+
+    /* ─── MathJax scroll container ────────────── */
+    .math-scroll {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      text-align: center;
+      padding-bottom: 6px; /* room for scrollbar */
+    }
+    /* Don't let .eq itself scroll — the .math-scroll wrapper handles it */
+    .eq {
+      overflow: visible;
+      text-align: center;
+    }
+    /* formula-item and fs-cell: scroll if content is wide */
+    .formula-item, .fs-cell {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      min-width: 0;
+    }
+    .formula-item { max-width: 100%; }
+
+    /* ─── Mobile overrides ─────────────────────── */
+    @media (max-width: 600px) {
+
+      /* Cover */
+      .cover {
+        padding: 36px 20px 30px;
+      }
+      .cover h1 {
+        font-size: 1.65rem;
+        letter-spacing: 0;
+      }
+      .cover .sub { font-size: 1rem; }
+      .cover .badge { font-size: .8rem; padding: 4px 12px; }
+
+      /* Content wrapper */
+      .content { padding: 0 14px 48px; }
+
+      /* TOC */
+      .toc {
+        padding: 18px 16px;
+        margin: 20px 0;
+        border-radius: 8px;
+      }
+      .toc ol { padding-right: 18px; }
+
+      /* Chapter header */
+      .chapter-header {
+        margin: 32px 0 0;
+        padding: 16px 16px 14px;
+      }
+      .chapter-header h2 { font-size: 1.3rem; }
+
+      /* Section */
+      .section { padding: 16px 14px; }
+
+      /* Headings */
+      h3 { font-size: 1rem; margin: 22px 0 8px; }
+      h4 { font-size: .95rem; margin: 16px 0 6px; }
+
+      /* Cards */
+      .card { padding: 14px 14px; }
+
+      /* Formula grid – 1 column on small screens */
+      .formula-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      /* Steps */
+      .step { gap: 10px; }
+      .step-num { min-width: 26px; height: 26px; font-size: .8rem; }
+
+      /* Tables – wrap in scroll container */
+      .card table,
+      .section > table,
+      .answer-box table,
+      .question-box table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      th, td { padding: 7px 10px; font-size: .82rem; }
+
+      /* Formula sheet rows – convert 3-col grid to stacked card */
+      .fs-row {
+        grid-template-columns: 1fr;
+        border-bottom: none;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        background: #fff;
+        border: 1px solid var(--gray-border);
+        padding: 2px 0;
+      }
+      .fs-row:first-of-type { border-top: none; }
+
+      /* Hide the header row labels (שם / נוסחה / תנאי) on mobile */
+      .fs-row:has(.fs-head) { display: none; }
+
+      .fs-cell {
+        padding: 6px 12px;
+        font-size: .85rem;
+        border-bottom: 1px solid #f1f5f9;
+      }
+      .fs-cell:last-child { border-bottom: none; }
+
+      /* Name cell – bold label */
+      .fs-cell:first-child {
+        font-weight: 700;
+        background: #f8fafc;
+        border-radius: 8px 8px 0 0;
+        font-size: .8rem;
+        color: var(--blue-dark);
+      }
+
+      /* Formula cell */
+      .fs-cell.formula-col {
+        background: #fff;
+        font-family: inherit;
+        text-align: center;
+        font-size: .88rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .fs-group { margin: 16px 0; }
+      .fs-group h3 { font-size: .9rem; padding: 7px 12px; }
+
+      /* Graph boxes */
+      .graph-box { padding: 12px 14px; }
+
+      /* Question / answer */
+      .question-box, .answer-box { padding: 14px 14px; }
+
+      /* Warning / tip */
+      .warning, .tip { padding: 10px 12px; }
+    }
+
+    /* Extra-small screens */
+    @media (max-width: 380px) {
+      .cover h1 { font-size: 1.35rem; }
+      .content { padding: 0 10px 40px; }
+      .section { padding: 12px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  COVER                                                  -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="cover">
+  <h1>⚡ חשמל ומגנטיות<br>סיכום מקיף לבגרות</h1>
+  <div class="sub">פיזיקה 5 יחידות · מיקוד 2026 · כיתה י"ב</div>
+  <div class="badges">
+    <span class="badge">אלקטרוסטטיקה</span>
+    <span class="badge">מעגלי זרם ישר</span>
+    <span class="badge">מגנטיות והשראה</span>
+    <span class="badge">דף נוסחאות מלא</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  TOC                                                    -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="content">
+<div class="toc">
+  <h2>📋 תוכן עניינים</h2>
+  <ol>
+    <li><a href="#electrostatics">אלקטרוסטטיקה – חוק קולון, שדה, פוטנציאל, תנועת מטענים</a></li>
+    <li><a href="#circuits">מעגלי זרם ישר – חוק אום, נגדים, כא"מ, הספק</a></li>
+    <li><a href="#magnetism">מגנטיות והשראה אלקטרומגנטית – לורנץ, אמפר, פרדיי, לנץ</a></li>
+    <li><a href="#formulas">דף נוסחאות מפורט</a></li>
+  </ol>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  CHAPTER 1 – ELECTROSTATICS                             -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div id="electrostatics">
+<div class="chapter-header ch-electrostatics">
+  <div class="ch-num">פרק 1</div>
+  <h2>⚡ אלקטרוסטטיקה</h2>
+</div>
+<div class="section">
+
+<!-- 1.1 Theory -->
+<h3>📚 1.1 תמצית תיאורטית</h3>
+
+<h4>חוק קולון</h4>
+<div class="card card-blue">
+  <div class="card-title">חוק קולון</div>
+  <p>הכוח בין שני מטענים נקודתיים $q_1, q_2$ במרחק $r$:</p>
+  <div class="eq">$$F = k \frac{|q_1| \cdot |q_2|}{r^2}$$</div>
+  <ul>
+    <li>$k = 9 \times 10^9 \; \mathrm{N \cdot m^2/C^2}$ – קבוע קולון</li>
+    <li>כוח מושך כאשר הסימנים הפוכים, דוחה כאשר הסימנים זהים</li>
+    <li>הכוח פועל לאורך הקו המחבר את המטענים</li>
+  </ul>
+</div>
+
+<h4>שדה חשמלי</h4>
+<div class="card card-blue">
+  <div class="card-title">שדה חשמלי</div>
+  <p>השדה החשמלי $E$ הוא הכוח ליחידת מטען חיובי:</p>
+  <div class="eq">$$E = \frac{F}{q_0} = k \frac{Q}{r^2}$$</div>
+  <p>הכוח על מטען $q$ בשדה $E$:</p>
+  <div class="eq">$$F = qE$$</div>
+  <ul>
+    <li>כיוון השדה: מהמטען החיובי אל השלילי (כיוון תנועת מטען חיובי)</li>
+    <li>יחידות: $\mathrm{N/C}$ (שקול ל-$\mathrm{V/m}$)</li>
+    <li><strong>שדה אחיד בין לוחות קבל:</strong> $E = \dfrac{U}{d}$ (כאשר $d$ = מרחק בין הלוחות)</li>
+  </ul>
+</div>
+
+<h4>פוטנציאל חשמלי ואנרגיה פוטנציאלית</h4>
+<div class="card card-blue">
+  <div class="card-title">פוטנציאל ואנרגיה פוטנציאלית</div>
+  <p>פוטנציאל ממטען נקודתי $Q$:</p>
+  <div class="eq">$$V = k \frac{Q}{r}$$</div>
+  <p>אנרגיה פוטנציאלית של מטען $q$ בפוטנציאל $V$:</p>
+  <div class="eq">$$E_p = qV$$</div>
+  <p>עבודה להזזת מטען $q$ בין שתי נקודות:</p>
+  <div class="eq">$$W = q(V_A - V_B) = q \cdot \Delta V$$</div>
+  <p>שינוי אנרגיה קינטית (שימור אנרגיה):</p>
+  <div class="eq">$$\Delta E_k = -\Delta E_p = q(V_A - V_B)$$</div>
+</div>
+
+<h4>חיבור מוליכים (קבלים)</h4>
+<div class="formula-grid">
+  <div class="formula-item">
+    <div class="f-name">קבל – קיבול</div>
+    $$C = \frac{Q}{V}$$
+    <small>יחידות: פאראד [F]</small>
+  </div>
+  <div class="formula-item">
+    <div class="f-name">קבלים במקביל</div>
+    $$C_{total} = C_1 + C_2 + \cdots$$
+    <small>מתח זהה על כל קבל</small>
+  </div>
+  <div class="formula-item">
+    <div class="f-name">קבלים בטור</div>
+    $$\frac{1}{C_{total}} = \frac{1}{C_1} + \frac{1}{C_2} + \cdots$$
+    <small>מטען זהה על כל קבל</small>
+  </div>
+  <div class="formula-item">
+    <div class="f-name">אנרגיה מאוחסנת בקבל</div>
+    $$E = \frac{1}{2}CV^2 = \frac{Q^2}{2C} = \frac{QV}{2}$$
+  </div>
+</div>
+
+<h4>תנועת מטען בשדה אחיד</h4>
+<div class="card card-blue">
+  <div class="card-title">תנועה בשדה חשמלי אחיד (בין לוחות קבל)</div>
+  <p><strong>בכיוון השדה:</strong> תאוצה קבועה $a = \dfrac{qE}{m}$ (בדומה לנפילה חופשית).</p>
+  <p><strong>ניצב לשדה:</strong> תנועה אחידה (בדומה לזריקה אופקית).</p>
+  <div class="eq">$$a = \frac{qE}{m} = \frac{qU}{md}$$</div>
+  <p>שימוש בנוסחאות קינמטיקה רגילות: $v = v_0 + at$, $x = v_0 t + \dfrac{1}{2}at^2$, $v^2 = v_0^2 + 2ax$.</p>
+</div>
+
+<!-- 1.2 Graphs -->
+<h3>📊 1.2 ניתוח גרפי</h3>
+
+<div class="graph-box">
+  <div class="graph-title">גרף 1: $F$ כפונקציה של $\dfrac{1}{r^2}$ (חוק קולון)</div>
+  <p><strong>צורה:</strong> קו ישר דרך הראשית.</p>
+  <p><strong>שיפוע:</strong> $\text{שיפוע} = k \cdot |q_1| \cdot |q_2|$</p>
+  <p><strong>מה מסמל:</strong> מכפלת המטענים כפול קבוע קולון.</p>
+  <p><strong>שימוש:</strong> ציר ה-$x$ הוא $1/r^2$ – כך ממירים את היחס ההפוך לגרף ישר.</p>
+</div>
+
+<div class="graph-box">
+  <div class="graph-title">גרף 2: $E$ כפונקציה של $r$ ממטען נקודתי</div>
+  <p><strong>צורה:</strong> היפרבולה ($E \propto 1/r^2$) – השדה קטן מהר עם המרחק.</p>
+  <p><strong>שיפוע:</strong> לא רלוונטי; השטח מתחת לגרף $E$-$r$ שווה לעבודה ליחידת מטען.</p>
+  <p><strong>במצב שדה אחיד (בין לוחות):</strong> גרף $E$ קבוע – קו אופקי.</p>
+</div>
+
+<div class="graph-box">
+  <div class="graph-title">גרף 3: $V$ כפונקציה של $r$</div>
+  <p><strong>צורה:</strong> $V \propto 1/r$ – יחס הפוך (לא ריבועי!).</p>
+  <p><strong>בשדה אחיד בין לוחות:</strong> $V$ קטן לינארי עם המרחק; גרף $V$-$x$ הוא קו ישר בשיפוע שלילי.</p>
+  <p><strong>שיפוע הגרף $V$-$x$:</strong> $\dfrac{\Delta V}{\Delta x} = -E$ (עוצמת השדה עם סימן)</p>
+</div>
+
+<div class="graph-box">
+  <div class="graph-title">גרף 4: $Q$ כפונקציה של $V$ לקבל (קבל $C = Q/V$)</div>
+  <p><strong>צורה:</strong> קו ישר דרך הראשית.</p>
+  <p><strong>שיפוע:</strong> $C$ (הקיבול)</p>
+  <p><strong>השטח מתחת:</strong> $\frac{1}{2}QV$ = האנרגיה המאוחסנת בקבל.</p>
+</div>
+
+<!-- 1.3 Example -->
+<h3>📝 1.3 שאלה לדוגמה</h3>
+<div class="question-box">
+  <div class="q-label">שאלה – ברמת בגרות</div>
+  <p>שני לוחות קבל מטוסיים, מקבילים, מרוחקים $d = 4 \; \mathrm{cm}$ זה מזה. מתח בין הלוחות $U = 800 \; \mathrm{V}$.</p>
+  <p>פרוטון (מסה $m_p = 1.67 \times 10^{-27} \; \mathrm{kg}$, מטען $e = 1.6 \times 10^{-19} \; \mathrm{C}$) נורה <strong>ניצב</strong> לקווי השדה עם מהירות $v_0 = 3 \times 10^5 \; \mathrm{m/s}$ ממרחק $d/2$ מהלוח השלילי.</p>
+  <p><strong>א.</strong> חשב את עוצמת השדה החשמלי בין הלוחות.</p>
+  <p><strong>ב.</strong> חשב את התאוצה של הפרוטון.</p>
+  <p><strong>ג.</strong> הגרף שלהלן מציג את $v_y$ (מהירות בכיוון השדה) כפונקציה של הזמן. מה מייצג שיפוע הגרף? חשב את מהירות הפרוטון לאחר $t = 10 \; \mathrm{ns}$ בתוך הקבל.</p>
+  <p><strong>ד.</strong> האם הפרוטון יגיע ללוח החיובי? הסבר.</p>
+</div>
+
+<div class="answer-box">
+  <div class="a-label">פתרון מלא ומודרך</div>
+  <div class="steps">
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>שדה חשמלי בין לוחות (שדה אחיד):</strong>
+        <div class="eq">$$E = \frac{U}{d} = \frac{800}{0.04} = 2 \times 10^4 \; \mathrm{V/m}$$</div>
+        <p>השדה אחיד ומכוון מהלוח החיובי לשלילי.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>תאוצה של הפרוטון:</strong>
+        <div class="eq">$$F = eE = 1.6 \times 10^{-19} \times 2 \times 10^4 = 3.2 \times 10^{-15} \; \mathrm{N}$$</div>
+        <div class="eq">$$a = \frac{F}{m_p} = \frac{3.2 \times 10^{-15}}{1.67 \times 10^{-27}} \approx 1.92 \times 10^{12} \; \mathrm{m/s^2}$$</div>
+        <p>כיוון התאוצה: לעבר הלוח החיובי (כיוון השדה, כי הפרוטון חיובי).</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>ניתוח גרף $v_y$-$t$:</strong>
+        <p>מכיוון שהתאוצה <strong>קבועה</strong>, גרף $v_y$-$t$ הוא <strong>קו ישר</strong>.</p>
+        <p>שיפוע הגרף = $a \approx 1.92 \times 10^{12} \; \mathrm{m/s^2}$</p>
+        <p>לאחר $t = 10 \; \mathrm{ns} = 10 \times 10^{-9} \; \mathrm{s}$:</p>
+        <div class="eq">$$v_y = at = 1.92 \times 10^{12} \times 10 \times 10^{-9} = 1.92 \times 10^4 \; \mathrm{m/s}$$</div>
+        <p>מהירות כוללת:</p>
+        <div class="eq">$$v = \sqrt{v_0^2 + v_y^2} = \sqrt{(3 \times 10^5)^2 + (1.92 \times 10^4)^2} \approx 3.006 \times 10^5 \; \mathrm{m/s}$$</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <strong>האם הפרוטון יגיע ללוח?</strong>
+        <p>הפרוטון מתחיל במרחק $d/2 = 2 \; \mathrm{cm}$ מהלוח השלילי ומואץ לעבר הלוח <strong>החיובי</strong>.</p>
+        <p>מרחק לעבר הלוח החיובי: $d/2 = 0.02 \; \mathrm{m}$.</p>
+        <p>בדיקה: מהו הזמן להגיע ללוח?</p>
+        <div class="eq">$$0.02 = \frac{1}{2} \times 1.92 \times 10^{12} \times t^2 \Rightarrow t \approx 4.56 \times 10^{-9} \; \mathrm{s} = 4.56 \; \mathrm{ns}$$</div>
+        <p>בזמן זה, תזוזה ניצבת (בכיוון $v_0$):</p>
+        <div class="eq">$$x = v_0 \cdot t = 3 \times 10^5 \times 4.56 \times 10^{-9} = 1.37 \times 10^{-3} \; \mathrm{m}$$</div>
+        <p><strong>מסקנה:</strong> אם רוחב הלוחות גדול מ-$1.37 \; \mathrm{mm}$, הפרוטון יגיע ללוח החיובי.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 1.4 Pitfalls -->
+<h3>🚨 1.4 דגשים ו'מוקשים'</h3>
+<div class="card card-red">
+  <div class="card-title">טעויות נפוצות</div>
+  <ul class="danger-list">
+    <li><strong>שיכחת המרת יחידות:</strong> $r$ בחוק קולון חייב להיות במטרים, $d$ בנוסחת $E=U/d$ חייב להיות במטרים.</li>
+    <li><strong>בלבול בין כוח לשדה:</strong> $E$ הוא שדה (N/C), $F = qE$ הוא הכוח על מטען $q$.</li>
+    <li><strong>כיוון השדה:</strong> תמיד מ+ ל- (מהמטען החיובי). כוח על אלקטרון (מטען שלילי) הוא <strong>בניגוד</strong> לכיוון השדה.</li>
+    <li><strong>פוטנציאל לעומת שדה:</strong> $V$ הוא סקלר (ניתן לחיבור פשוט), $E$ הוא וקטור (חיבור וקטורי).</li>
+    <li><strong>קבלים בטור:</strong> שגיאה בנוסחה ההפוכה $\frac{1}{C_{total}}$. בטור הקיבול הכולל <strong>קטן</strong> מהקטן שבין השניים.</li>
+    <li><strong>$V$ מהמטען vs. שדה:</strong> $V = k Q/r$ (יחס הפוך פשוט), אבל $E = k Q/r^2$ (יחס הפוך לריבוע).</li>
+    <li><strong>עבודה:</strong> $W = q\Delta V = q(V_A - V_B)$ – שימו לב לסימן! עבודה חיובית = מטען נע לעבר מקום בעל פוטנציאל נמוך יותר (אם $q > 0$).</li>
+  </ul>
+</div>
+
+</div><!-- /section -->
+</div><!-- /chapter 1 -->
+
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  CHAPTER 2 – DC CIRCUITS                               -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div id="circuits">
+<div class="chapter-header ch-circuits">
+  <div class="ch-num">פרק 2</div>
+  <h2>🔋 מעגלי זרם ישר</h2>
+</div>
+<div class="section">
+
+<!-- 2.1 Theory -->
+<h3>📚 2.1 תמצית תיאורטית</h3>
+
+<h4>חוק אום וזרם חשמלי</h4>
+<div class="card card-green">
+  <div class="card-title">זרם ומתח</div>
+  <div class="formula-grid">
+    <div class="formula-item">
+      <div class="f-name">זרם חשמלי</div>
+      $$I = \frac{Q}{t} \quad [\mathrm{A} = \mathrm{C/s}]$$
+    </div>
+    <div class="formula-item">
+      <div class="f-name">חוק אום</div>
+      $$V = IR \quad \Leftrightarrow \quad R = \frac{V}{I}$$
+      <small>$[\Omega = \mathrm{V/A}]$</small>
+    </div>
+    <div class="formula-item">
+      <div class="f-name">התנגדות תיל</div>
+      $$R = \rho \frac{L}{A}$$
+      <small>$\rho$ = נגדיות [$\Omega \cdot \mathrm{m}$], $L$ = אורך, $A$ = שטח חתך</small>
+    </div>
+  </div>
+</div>
+
+<h4>חיבור נגדים</h4>
+<div class="card card-green">
+  <div class="card-title">חיבור נגדים</div>
+  <table>
+    <tr>
+      <th>חיבור</th>
+      <th>נגד שקול</th>
+      <th>מה נשמר</th>
+      <th>מה משתנה</th>
+    </tr>
+    <tr>
+      <td><strong>טור</strong></td>
+      <td>$R_T = R_1 + R_2 + \cdots$</td>
+      <td>זרם $I$</td>
+      <td>מתח $V$</td>
+    </tr>
+    <tr>
+      <td><strong>מקביל</strong></td>
+      <td>$\dfrac{1}{R_T} = \dfrac{1}{R_1} + \dfrac{1}{R_2} + \cdots$</td>
+      <td>מתח $V$</td>
+      <td>זרם $I$</td>
+    </tr>
+  </table>
+  <p class="tip">לשני נגדים במקביל: $R_T = \dfrac{R_1 \cdot R_2}{R_1 + R_2}$</p>
+</div>
+
+<h4>כוח אלקטרו-מניע (כא"מ), התנגדות פנימית ומתח הדקים</h4>
+<div class="card card-green">
+  <div class="card-title">מקור מתח אמיתי</div>
+  <p>מקור מתח אמיתי מכיל כא"מ $\varepsilon$ והתנגדות פנימית $r$:</p>
+  <div class="eq">$$\varepsilon = I(R + r) = IR + Ir$$</div>
+  <p><strong>מתח הדקים</strong> (המתח שנמדד על ידי וולטמטר בין הדקי המקור):</p>
+  <div class="eq">$$V_{terminal} = \varepsilon - Ir$$</div>
+  <ul>
+    <li>בזרם גבוה: $Ir$ גדול ← מתח הדקים נמוך יותר.</li>
+    <li>במעגל פתוח ($I = 0$): $V_{terminal} = \varepsilon$.</li>
+    <li>גרף $V_{terminal}$ כלפי $I$: קו ישר עם שיפוע שלילי $= -r$ וחיתוך ציר $y$ ב-$\varepsilon$.</li>
+  </ul>
+</div>
+
+<h4>הספק ואנרגיה חשמלית</h4>
+<div class="formula-grid">
+  <div class="formula-item">
+    <div class="f-name">הספק כללי</div>
+    $$P = VI = I^2 R = \frac{V^2}{R}$$
+    <small>יחידות: וואט [W]</small>
+  </div>
+  <div class="formula-item">
+    <div class="f-name">אנרגיה</div>
+    $$E = Pt = VIt = I^2 R t$$
+    <small>יחידות: ג'אול [J]</small>
+  </div>
+  <div class="formula-item">
+    <div class="f-name">הספק מקור</div>
+    $$P_{source} = \varepsilon I$$
+  </div>
+  <div class="formula-item">
+    <div class="f-name">הספק אבוד בהתנגדות פנימית</div>
+    $$P_{internal} = I^2 r$$
+  </div>
+</div>
+
+<!-- 2.2 Graphs -->
+<h3>📊 2.2 ניתוח גרפי</h3>
+
+<div class="graph-box">
+  <div class="graph-title">גרף 1: $V$ כפונקציה של $I$ (גרף $V$-$I$ לנגד)</div>
+  <p><strong>צורה:</strong> קו ישר דרך הראשית.</p>
+  <p><strong>שיפוע:</strong> $R$ (ההתנגדות).</p>
+  <p><strong>פירוש:</strong> שיפוע גדול = נגד גדול. קו תלול יותר = נגד גדול יותר.</p>
+  <p><strong>אם הגרף לא קו ישר:</strong> הנגד אינו אוהמי (לא מקיים חוק אום).</p>
+</div>
+
+<div class="graph-box">
+  <div class="graph-title">גרף 2: $V_{terminal}$ כפונקציה של $I$ (מקור עם התנגדות פנימית)</div>
+  <p><strong>צורה:</strong> קו ישר עם שיפוע שלילי.</p>
+  <p><strong>חיתוך ציר $y$ ($I=0$):</strong> $\varepsilon$ (הכא"מ).</p>
+  <p><strong>שיפוע:</strong> $-r$ (ההתנגדות הפנימית).</p>
+  <p><strong>חיתוך ציר $x$ ($V=0$):</strong> זרם קצר-מעגל $I_{sc} = \varepsilon/r$.</p>
+</div>
+
+<div class="graph-box">
+  <div class="graph-title">גרף 3: $P$ כפונקציה של $I$ (הספק על נגד)</div>
+  <p><strong>צורה:</strong> פרבולה ($P = I^2 R$).</p>
+  <p><strong>פירוש:</strong> הספק עולה כריבוע הזרם.</p>
+</div>
+
+<div class="graph-box">
+  <div class="graph-title">גרף 4: $P_{useful}$ כפונקציה של $I$ (הספק שמועבר לנגד חיצוני)</div>
+  <p>$P_{useful} = \varepsilon I - I^2 r$ – פרבולה הפוכה (מקסימום בנקודה מסוימת).</p>
+  <p>מקסימום הספק לנגד חיצוני: כאשר $R_{external} = r$.</p>
+</div>
+
+<!-- 2.3 Example -->
+<h3>📝 2.3 שאלה לדוגמה</h3>
+<div class="question-box">
+  <div class="q-label">שאלה – ברמת בגרות</div>
+  <p>מקור מתח בעל כא"מ $\varepsilon = 12 \; \mathrm{V}$ והתנגדות פנימית $r = 2 \; \Omega$ מחובר למעגל.</p>
+  <p>המעגל החיצוני: $R_1 = 4 \; \Omega$ ו-$R_2 = 6 \; \Omega$ <strong>בטור</strong>, ו-$R_3 = 12 \; \Omega$ במקביל לשניהם.</p>
+
+  <p><strong>א.</strong> חשב את ההתנגדות השקולה של המעגל החיצוני.</p>
+  <p><strong>ב.</strong> חשב את הזרם הכולל ואת מתח הדקים.</p>
+  <p><strong>ג.</strong> מה הגרף $V_{terminal}$ לעומת $I$ מראה? מה ניתן לקרוא ממנו?</p>
+  <p><strong>ד.</strong> חשב את הספק המפוזר בכל נגד ואת הספק הכולל של המקור.</p>
+</div>
+
+<div class="answer-box">
+  <div class="a-label">פתרון מלא ומודרך</div>
+  <div class="steps">
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>התנגדות שקולה חיצונית:</strong>
+        <p>קודם $R_1 + R_2$ בטור:</p>
+        <div class="eq">$$R_{12} = R_1 + R_2 = 4 + 6 = 10 \; \Omega$$</div>
+        <p>כעת $R_{12}$ במקביל עם $R_3$:</p>
+        <div class="eq">$$R_{ext} = \frac{R_{12} \cdot R_3}{R_{12} + R_3} = \frac{10 \times 12}{10 + 12} = \frac{120}{22} \approx 5.45 \; \Omega$$</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>זרם כולל ומתח הדקים:</strong>
+        <div class="eq">$$I_{total} = \frac{\varepsilon}{R_{ext} + r} = \frac{12}{5.45 + 2} = \frac{12}{7.45} \approx 1.61 \; \mathrm{A}$$</div>
+        <div class="eq">$$V_{terminal} = \varepsilon - I \cdot r = 12 - 1.61 \times 2 = 12 - 3.22 \approx 8.78 \; \mathrm{V}$$</div>
+           </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>ניתוח גרף $V_{terminal}$-$I$:</strong>
+        <p>הגרף הוא קו ישר: $V = \varepsilon - Ir = 12 - 2I$.</p>
+        <ul>
+          <li>חיתוך ציר $y$: $V = 12 \; \mathrm{V} = \varepsilon$</li>
+          <li>שיפוע: $-2 = -r$ ← $r = 2 \; \Omega$</li>
+          <li>חיתוך ציר $x$: $I = 6 \; \mathrm{A}$ (זרם קצר-מעגל)</li>
+        </ul>
+        <p>הנקודה שמצאנו: $(I = 1.61, V = 8.78)$ נמצאת על הישר הזה.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <strong>הספקים:</strong>
+        <p>המתח על $R_{ext}$ (= $V_{terminal}$) = $8.78 \; \mathrm{V}$.</p>
+        <p>זרם בענף $R_{12}$: $I_{12} = \dfrac{V_{terminal}}{R_{12}} = \dfrac{8.78}{10} = 0.878 \; \mathrm{A}$</p>
+        <p>זרם ב-$R_3$: $I_3 = \dfrac{8.78}{12} = 0.732 \; \mathrm{A}$</p>
+        <div class="eq">$$P_1 = I_{12}^2 R_1 = (0.878)^2 \times 4 \approx 3.08 \; \mathrm{W}$$</div>
+        <div class="eq">$$P_2 = I_{12}^2 R_2 = (0.878)^2 \times 6 \approx 4.63 \; \mathrm{W}$$</div>
+        <div class="eq">$$P_3 = I_3^2 R_3 = (0.732)^2 \times 12 \approx 6.43 \; \mathrm{W}$$</div>
+        <div class="eq">$$P_{source} = \varepsilon \cdot I = 12 \times 1.61 \approx 19.32 \; \mathrm{W}$$</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 2.4 Pitfalls -->
+<h3>🚨 2.4 דגשים ו'מוקשים'</h3>
+<div class="card card-red">
+  <div class="card-title">טעויות נפוצות</div>
+  <ul class="danger-list">
+    <li><strong>בלבול בין טור למקביל בחישוב זרמים ומתחות:</strong> בטור – זרם זהה, מתח מתחלק. במקביל – מתח זהה, זרם מתחלק.</li>
+    <li><strong>שיכחת ההתנגדות הפנימית:</strong> הכא"מ אינו שווה למתח הדקים כאשר יש זרם!</li>
+    <li><strong>נוסחת מקביל:</strong> יש לחשב $1/R_{total}$ ואז להפוך. שגיאה נפוצה: לשכוח להפוך בסוף.</li>
+    <li><strong>הספק:</strong> יש שלוש נוסחאות שקולות. כאשר נותנים זרם ונגד – עדיף $P = I^2 R$. כאשר נותנים מתח ונגד – עדיף $P = V^2/R$.</li>
+    <li><strong>יחידות הספק:</strong> ואט = ג'אול/שנייה. לא לבלבל עם אנרגיה (ג'אול).</li>
+    <li><strong>קילוואט-שעה:</strong> $1 \; \mathrm{kWh} = 3.6 \times 10^6 \; \mathrm{J}$</li>
+  </ul>
+</div>
+
+</div><!-- /section -->
+</div><!-- /chapter 2 -->
+
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  CHAPTER 3 – MAGNETISM & EM INDUCTION                  -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div id="magnetism">
+<div class="chapter-header ch-magnetism">
+  <div class="ch-num">פרק 3</div>
+  <h2>🧲 מגנטיות והשראה אלקטרומגנטית</h2>
+</div>
+<div class="section">
+
+<!-- 3.1 Theory -->
+<h3>📚 3.1 תמצית תיאורטית</h3>
+
+<h4>כוח לורנץ – כוח מגנטי על מטען נע</h4>
+<div class="card card-purple">
+  <div class="card-title">כוח לורנץ</div>
+  <div class="eq">$$F = qvB\sin\theta$$</div>
+  <ul>
+    <li>$q$ = מטען [C], $v$ = מהירות [m/s], $B$ = שדה מגנטי [T = טסלה]</li>
+    <li>$\theta$ = זווית בין $\vec{v}$ ל-$\vec{B}$</li>
+    <li>כיוון: כלל יד ימין: האגודל מצביע על כיוון הכוח ($F$), האצבע המורה על כיוון התנועה או הזרם ($v/I$) והאמה על כיוון השדה המגנטי ($B$)</li>
+    <li>הכוח <strong>תמיד ניצב</strong> למהירות ← הוא לא מבצע עבודה </li>
+  </ul>
+  <p><strong>תנועה מעגלית במגנט:</strong> $F_L = F_c$:</p>
+  <div class="eq">$$qvB = \frac{mv^2}{r} \Rightarrow r = \frac{mv}{qB}$$</div>
+</div>
+
+<h4>כוח אמפר – כוח מגנטי על מוליך נושא זרם</h4>
+<div class="card card-purple">
+  <div class="card-title">כוח אמפר</div>
+  <div class="eq">$$F = BIL\sin\theta$$</div>
+  <ul>
+    <li>$I$ = זרם [A], $L$ = אורך המוליך בשדה [m], $\theta$ = זווית בין $\vec{I}$ ל-$\vec{B}$</li>
+    <li>כיוון: כלל יד ימין (או כלל האגרוף). אצבעות לכיוון הזרם, כיפוף לכיוון $\vec{B}$ .</li>
+    <li>מקסימאלי כאשר $\theta = 90°$ (זרם ניצב לשדה).</li>
+    <li>אפס כאשר $\theta = 0°$ (זרם מקביל לשדה).</li>
+  </ul>
+</div>
+
+<h4>שדה מגנטי של תיל ישר וסליל</h4>
+<div class="formula-grid">
+  <div class="formula-item">
+    <div class="f-name">שדה של תיל ישר</div>
+    $$B = \frac{\mu_0 I}{2\pi r}$$
+    <small>$\mu_0 = 4\pi \times 10^{-7} \; \mathrm{T \cdot m/A}$, $r$ = מרחק מהתיל</small>
+  </div>
+  <div class="formula-item">
+    <div class="f-name">כיוון השדה – תיל</div>
+    <p>כלל יד ימין: אגודל לכיוון הזרם, האצבעות כורכות = כיוון $\vec{B}$.</p>
+  </div>
+  <div class="formula-item">
+    <div class="f-name">שדה בתוך סליל</div>
+    $$B = \mu_0 \frac{N}{L} I = \mu_0 n I$$
+    <small>$n = N/L$ = צפיפות הכריכות [סיבובים/מ']</small>
+  </div>
+  <div class="formula-item">
+    <div class="f-name">כוח בין תילים מקבילים</div>
+    $$F = \frac{\mu_0 I_1 I_2}{2\pi d} L$$
+    <small>זרמים בכיוון זהה – משיכה; הפוך – דחייה.</small>
+  </div>
+</div>
+
+<h4>שטף מגנטי</h4>
+<div class="card card-purple">
+  <div class="card-title">שטף מגנטי</div>
+  <div class="eq">$$\Phi = B \cdot A \cdot \cos\theta$$</div>
+  <ul>
+    <li>$A$ = שטח הלולאה [m²], $\theta$ = זווית בין $\vec{B}$ לנורמל למישור הלולאה</li>
+    <li>יחידות: ובר [Wb] = T·m²</li>
+    <li>שטף מקסימאלי: כאשר $\vec{B}$ ניצב למישור הלולאה ($\theta = 0$)</li>
+    <li>שטף אפס: כאשר $\vec{B}$ מקביל למישור הלולאה ($\theta = 90°$)</li>
+  </ul>
+</div>
+
+<h4>חוק פרדיי וחוק לנץ</h4>
+<div class="card card-purple">
+  <div class="card-title">חוק פרדיי (כא"מ מושרה)</div>
+  <div class="eq">$$\varepsilon = -\frac{\Delta \Phi}{\Delta t} = -N\frac{\Delta(BA\cos\theta)}{\Delta t}$$</div>
+  <ul>
+    <li>$N$ = מספר כריכות הסליל</li>
+    <li>הסימן המינוס: חוק לנץ (הזרם המושרה מתנגד לשינוי הגורם לו)</li>
+  </ul>
+  <p><strong>מקרים מיוחדים:</strong></p>
+  <ul>
+    <li>$B$ משתנה, $A$ קבוע: $\varepsilon = -NA\cos\theta \cdot \dfrac{\Delta B}{\Delta t}$</li>
+    <li>$A$ משתנה, $B$ קבוע ניצב: $\varepsilon = -NB \cdot \dfrac{\Delta A}{\Delta t}$</li>
+    <li>תיל נע במגנט: $\varepsilon = BLv$ (כאשר $v$ ניצב ל-$B$ ול-$L$)</li>
+    <li>סליל מסתובב: $\varepsilon(t) = \varepsilon_{max}\sin(\omega t)$ (גנרטור AC)</li>
+  </ul>
+</div>
+
+<div class="card card-purple">
+  <div class="card-title">חוק לנץ – כלל לכיוון הזרם המושרה</div>
+  <p><strong>ניסוח:</strong> הזרם המושרה יוצר שדה מגנטי שמתנגד לשינוי בשטף המגנטי.</p>
+  <ul>
+    <li>אם השטף <strong>גדל</strong> (כניסת מגנט) ← הזרם יוצר שדה בכיוון <strong>הפוך</strong> לשדה החיצוני.</li>
+    <li>אם השטף <strong>קטן</strong> (יציאת מגנט) ← הזרם יוצר שדה בכיוון <strong>זהה</strong> לשדה החיצוני.</li>
+  </ul>
+  <p>לאחר קביעת כיוון השדה המושרה – כלל יד ימין לכיוון הזרם בלולאה.</p>
+</div>
+
+<!-- 3.2 Graphs -->
+<h3>📊 3.2 ניתוח גרפי</h3>
+
+<div class="graph-box">
+  <div class="graph-title">גרף 1: $\Phi$ כפונקציה של זמן – לולאה הנכנסת לשדה</div>
+  <p><strong>שלב כניסה:</strong> $\Phi$ עולה לינארי ← $\varepsilon = -\Delta\Phi/\Delta t  $ קבוע (שיפוע הגרף).</p>
+  <p><strong>שלב בתוך השדה לחלוטין:</strong> $\Phi$ קבוע ← שיפוע = 0 ← $\varepsilon = 0$.</p>
+  <p><strong>שלב יציאה:</strong> $\Phi$ יורד לינארי ← $\varepsilon = \Delta\Phi/\Delta t $ קבוע בכיוון הפוך.</p>
+  <p><strong>שיפוע הגרף $\Phi$-$t$:</strong> = $\varepsilon$ מושרה (עם סימן).</p>
+</div>
+
+<div class="graph-box">
+  <div class="graph-title">גרף 2: $\varepsilon$ כפונקציה של זמן – תנועת לולאה דרך שדה</div>
+  <p>קו ישר בכניסה (ערך חיובי), אפס בפנים, קו ישר ביציאה (ערך שלילי).</p>
+</div>
+
+<div class="graph-box">
+  <div class="graph-title">גרף 3: $F$ כפונקציה של $v$ לחלקיק נע בשדה מגנטי (כוח לורנץ)</div>
+  <p><strong>צורה:</strong> קו ישר דרך הראשית ($F = qvB$).</p>
+  <p><strong>שיפוע:</strong> $qB$.</p>
+  <p>גרף $r$-$v$ (רדיוס תנועה מעגלית): קו ישר, שיפוע $ m/(qB)$.</p>
+</div>
+
+<div class="graph-box">
+  <div class="graph-title">גרף 4: גרף $r$-$p$ (רדיוס כתלות בתנע) לתנועה במגנט</div>
+  <p>$r = \dfrac{mv}{qB} = \dfrac{p}{qB}$ ← גרף $r$-$p$ קו ישר, שיפוע $ \dfrac{1}{qB}$.</p>
+</div>
+
+<!-- 3.3 Example -->
+<h3>📝 3.3 שאלה לדוגמה</h3>
+<div class="question-box">
+  <div class="q-label">שאלה – ברמת בגרות</div>
+  <p>לולאה מלבנית בשטח $A = 0.05 \; \mathrm{m^2}$ ו-$N = 200$ כריכות, נמצאת בשדה מגנטי אחיד $B = 0.3 \; \mathrm{T}$ הניצב למישורה. הלולאה מסובבת כך שמישורה הופך ניצב לשדה תוך $\Delta t = 0.02 \; \mathrm{s}$.</p>
+  <p><strong>א.</strong> חשב את השינוי בשטף המגנטי.</p>
+  <p><strong>ב.</strong> חשב את הכא"מ המושרה.</p>
+  <p><strong>ג.</strong> הגרף $\Phi$-$t$ מוצג. מה מייצג השיפוע? רשום את ערכו.</p>
+  <p><strong>ד.</strong> לפי חוק לנץ, מה הכיוון של הזרם המושרה בעת הסיבוב? הסבר.</p>
+  <p><strong>ה.</strong> אם ההתנגדות הכוללת של הלולאה $R = 5 \; \Omega$, חשב את הזרם המושרה ואת העוצמה הממוצעת.</p>
+</div>
+
+<div class="answer-box">
+  <div class="a-label">פתרון מלא ומודרך</div>
+  <div class="steps">
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>שינוי שטף:</strong>
+        <p>מצב ראשוני: מישור ניצב לשדה ← <div class="eq">$$\theta = 0^\circ \implies \Phi_i = B \cdot A \cdot \cos(0^\circ) = 0.3 \cdot 0.05 \cdot 1 = 0.015 \; \mathrm{Wb}$$</div>
+        <p>מצב סופי: מישור מקביל לשדה ← $\theta = 90°$ ← $\Phi_f = BA\cos90° = 0$</p>
+        <div class="eq">$$\Delta\Phi = \Phi_f - \Phi_i = 0 - 0.015 = -0.015 \; \mathrm{Wb}$$</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>כא"מ מושרה (חוק פרדיי):</strong>
+        <div class="eq">$$|\varepsilon| = N \left|\frac{\Delta\Phi}{\Delta t}\right| = 200 \times \frac{0.015}{0.02} = 200 \times 0.75 = 150 \; \mathrm{V}$$</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>ניתוח גרף $\Phi$-$t$:</strong>
+        <p>הגרף הוא קו ישר יורד מ-$0.015 \; \mathrm{Wb}$ ל-$0$ בזמן $0.02 \; \mathrm{s}$.</p>
+        <p>השיפוע = $\dfrac{\Delta\Phi}{\Delta t} = \dfrac{-0.015}{0.02} = -0.75 \; \mathrm{Wb/s}$</p>
+        <p>הכא"מ המושרה לכריכה אחת: $\varepsilon_1 = -\dfrac{\Delta\Phi}{\Delta t} = 0.75 \; \mathrm{V}$.</p>
+        <p>הכא"מ הכולל: $\varepsilon = N \times 0.75 = 150 \; \mathrm{V}$.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <strong>חוק לנץ – כיוון הזרם:</strong>
+        <p>השטף <strong>קטן</strong> (מ-$0.015$ ל-$0$).</p>
+        <p>לפי חוק לנץ: הזרם המושרה ינסה <strong>לשמור</strong> על השטף, כלומר ייצור שדה מגנטי בכיוון <strong>זהה</strong> לשדה החיצוני.</p>
+        <p>מכלל יד ימין: בעמדה הנתונה, הזרם יזרום בלולאה בכיוון מסוים כך ששדהו המגנטי מאותו הכיוון כמו $\vec{B}$ החיצוני.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <strong>זרם מושרה והספק:</strong>
+        <div class="eq">$$I = \frac{\varepsilon}{R} = \frac{150}{5} = 30 \; \mathrm{A}$$</div>
+        <div class="eq">$$P = \frac{\varepsilon^2}{R} = \frac{150^2}{5} = \frac{22500}{5} = 4500 \; \mathrm{W}$$</div>
+        <p>לחילופין: $P = I^2 R = 30^2 \times 5 = 4500 \; \mathrm{W}$ ✓</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 3.4 Pitfalls -->
+<h3>🚨 3.4 דגשים ו'מוקשים'</h3>
+<div class="card card-red">
+  <div class="card-title">טעויות נפוצות</div>
+  <ul class="danger-list">
+    <li><strong>כוח לורנץ לא מבצע עבודה:</strong> הכוח ניצב למהירות ולכן לא משנה אנרגיה קינטית, רק כיוון.</li>
+    <li><strong>בלבול בין $\theta$ בשטף ובכוח אמפר:</strong> בשטף $\theta$ הוא זווית בין $B$ לנורמל; בכוח אמפר $\theta$ הוא זווית בין $I$ ל-$B$.</li>
+    <li><strong>חוק לנץ – לשאול: האם השטף גדל או קטן?</strong> לא "האם המגנט מתקרב או מתרחק".</li>
+    <li><strong>כא"מ לעומת זרם:</strong> $\varepsilon = N\Delta\Phi/\Delta t$ נותן את המתח. הזרם הוא $I = \varepsilon/R$, תלוי גם בהתנגדות הלולאה.</li>
+    <li><strong>שדה תיל:</strong> $B \propto 1/r$ (לא ריבועי!). שדה של מטען נקודתי: $E \propto 1/r^2$ (ריבועי). לא לבלבל!</li>
+    <li><strong>$\theta$ בשטף:</strong> כאשר הלולאה ניצבת לשדה (השדה "מחלחל" ישר דרכה), $\theta = 0$ ו-$\Phi = BA$. כאשר הלולאה מקבילה לשדה, $\theta = 90°$ ו-$\Phi = 0$.</li>
+    <li><strong>יחידות:</strong> טסלה $[\mathrm{T}]$ = $\mathrm{kg/(A \cdot s^2)}$ = $\mathrm{V \cdot s/m^2}$; ובר $[\mathrm{Wb}]$ = $\mathrm{T \cdot m^2}$.</li>
+  </ul>
+</div>
+
+</div><!-- /section -->
+</div><!-- /chapter 3 -->
+
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  FORMULA SHEET                                         -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div id="formulas">
+<div class="chapter-header ch-formulas">
+  <div class="ch-num">נספח</div>
+  <h2>📋 דף נוסחאות מפורט</h2>
+</div>
+<div class="section">
+
+<div class="fs-group">
+  <h3>⚡ אלקטרוסטטיקה</h3>
+  <div class="fs-row">
+    <div class="fs-cell fs-head">שם</div>
+    <div class="fs-cell fs-head">נוסחה</div>
+    <div class="fs-cell fs-head">תנאי שימוש</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">חוק קולון</div>
+    <div class="fs-cell formula-col">$$F = k\frac{|q_1||q_2|}{r^2}$$</div>
+    <div class="fs-cell">שני מטענים נקודתיים במרחק $r$. $k=9\times10^9$.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">שדה חשמלי (הגדרה)</div>
+    <div class="fs-cell formula-col">$$E = \frac{F}{q_0}$$</div>
+    <div class="fs-cell">הכוח על מטען בדיקה $q_0$.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">שדה ממטען נקודתי</div>
+    <div class="fs-cell formula-col">$$E = k\frac{Q}{r^2}$$</div>
+    <div class="fs-cell">נקודה במרחק $r$ ממטען $Q$.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">שדה בין לוחות קבל</div>
+    <div class="fs-cell formula-col">$$E = \frac{U}{d}$$</div>
+    <div class="fs-cell">שדה אחיד, $U$ = הפרש מתח, $d$ = מרחק.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">כוח על מטען בשדה</div>
+    <div class="fs-cell formula-col">$$F = qE$$</div>
+    <div class="fs-cell">כולל סימן; $q<0$ ← כיוון הפוך לשדה.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">פוטנציאל ממטען נקודתי</div>
+    <div class="fs-cell formula-col">$$V = k\frac{Q}{r}$$</div>
+    <div class="fs-cell">סקלר (כולל סימן של $Q$).</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">אנרגיה פוטנציאלית</div>
+    <div class="fs-cell formula-col">$$E_p = qV$$</div>
+    <div class="fs-cell">של מטען $q$ בפוטנציאל $V$.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">עבודה</div>
+    <div class="fs-cell formula-col">$$W = q(V_A - V_B)$$</div>
+    <div class="fs-cell">עבודת הכוח החשמלי להזזת $q$ מ-$A$ ל-$B$.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">שימור אנרגיה</div>
+    <div class="fs-cell formula-col">$$\Delta E_k + \Delta E_p = 0$$</div>
+    <div class="fs-cell">מערכת שמרנית (ללא חיכוך).</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">קיבול</div>
+    <div class="fs-cell formula-col">$$C = \frac{Q}{V} \quad [F]$$</div>
+    <div class="fs-cell">של קבל; $V$ = הפרש מתח בין הלוחות.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">אנרגיה בקבל</div>
+    <div class="fs-cell formula-col">$$E_{cap} = \frac{1}{2}CV^2 = \frac{Q^2}{2C}$$</div>
+    <div class="fs-cell">אנרגיה מאוחסנת בשדה בין הלוחות.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">קבלים בטור</div>
+    <div class="fs-cell formula-col">$$\frac{1}{C_T} = \frac{1}{C_1} + \frac{1}{C_2}$$</div>
+    <div class="fs-cell">מטען שווה, מתח מתחלק.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">קבלים במקביל</div>
+    <div class="fs-cell formula-col">$$C_T = C_1 + C_2$$</div>
+    <div class="fs-cell">מתח שווה, מטען מתחלק.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">תאוצה בשדה אחיד</div>
+    <div class="fs-cell formula-col">$$a = \frac{qE}{m} = \frac{qU}{md}$$</div>
+    <div class="fs-cell">חלקיק טעון בשדה אחיד בין לוחות.</div>
+  </div>
+</div>
+
+<div class="fs-group">
+  <h3>🔋 מעגלי זרם ישר</h3>
+  <div class="fs-row">
+    <div class="fs-cell fs-head">שם</div>
+    <div class="fs-cell fs-head">נוסחה</div>
+    <div class="fs-cell fs-head">תנאי שימוש</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">זרם חשמלי</div>
+    <div class="fs-cell formula-col">$$I = \frac{Q}{t} \quad [A]$$</div>
+    <div class="fs-cell">זרם קבוע; $Q$ = מטען עובר בזמן $t$.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">חוק אום</div>
+    <div class="fs-cell formula-col">$$V = IR$$</div>
+    <div class="fs-cell">נגד אוהמי. $R$ = קבוע, ללא תלות ב-$I$.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">התנגדות תיל</div>
+    <div class="fs-cell formula-col">$$R = \rho\frac{L}{A}$$</div>
+    <div class="fs-cell">$\rho$ = נגדיות [$\Omega\cdot\mathrm{m}$]; $A$ = שטח חתך.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">נגדים בטור</div>
+    <div class="fs-cell formula-col">$$R_T = R_1 + R_2 + \cdots$$</div>
+    <div class="fs-cell">זרם זהה.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">נגדים במקביל</div>
+    <div class="fs-cell formula-col">$$\frac{1}{R_T} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots$$</div>
+    <div class="fs-cell">מתח זהה.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">שני נגדים במקביל</div>
+    <div class="fs-cell formula-col">$$R_T = \frac{R_1 R_2}{R_1 + R_2}$$</div>
+    <div class="fs-cell">קיצור שימושי לשני נגדים בלבד.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">מתח הדקים</div>
+    <div class="fs-cell formula-col">$$V_t = \varepsilon - Ir$$</div>
+    <div class="fs-cell">$\varepsilon$ = כא"מ, $r$ = התנגדות פנימית. במעגל סגור.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">זרם במעגל</div>
+    <div class="fs-cell formula-col">$$I = \frac{\varepsilon}{R + r}$$</div>
+    <div class="fs-cell">מעגל פשוט עם כא"מ והתנגדות פנימית.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">הספק</div>
+    <div class="fs-cell formula-col">$$P = VI = I^2R = \frac{V^2}{R} \quad [W]$$</div>
+    <div class="fs-cell">לכל עצם בעל מתח $V$ וזרם $I$.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">אנרגיה חשמלית</div>
+    <div class="fs-cell formula-col">$$E = Pt = VIt = I^2Rt \quad [J]$$</div>
+    <div class="fs-cell">—</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">קילוואט-שעה</div>
+    <div class="fs-cell formula-col">$$1 \; \mathrm{kWh} = 3.6 \times 10^6 \; \mathrm{J}$$</div>
+    <div class="fs-cell">יחידת אנרגיה מסחרית.</div>
+  </div>
+</div>
+
+<div class="fs-group">
+  <h3>🧲 מגנטיות והשראה</h3>
+  <div class="fs-row">
+    <div class="fs-cell fs-head">שם</div>
+    <div class="fs-cell fs-head">נוסחה</div>
+    <div class="fs-cell fs-head">תנאי שימוש</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">כוח לורנץ</div>
+    <div class="fs-cell formula-col">$$F = qvB\sin\theta$$</div>
+    <div class="fs-cell">מטען $q$ בשדה $B$, $v$ = מהירות, $\theta$ = זווית ביניהם.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">רדיוס תנועה מעגלית</div>
+    <div class="fs-cell formula-col">$$r = \frac{mv}{qB}$$</div>
+    <div class="fs-cell">חלקיק בשדה מגנטי; $v \perp B$.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">כוח אמפר</div>
+    <div class="fs-cell formula-col">$$F = BIL\sin\theta$$</div>
+    <div class="fs-cell">מוליך אורך $L$ נושא זרם $I$ בשדה $B$.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">שדה של תיל ישר</div>
+    <div class="fs-cell formula-col">$$B = \frac{\mu_0 I}{2\pi r}$$</div>
+    <div class="fs-cell">במרחק $r$ מתיל נושא זרם $I$. $\mu_0 = 4\pi\times10^{-7}$.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">שדה בתוך סליל</div>
+    <div class="fs-cell formula-col">$$B = \mu_0 \frac{N}{L} I = \mu_0 n I$$</div>
+    <div class="fs-cell">סליל ארוך; $n$ = כריכות לאורך יחידה.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">כוח בין תילים מקבילים</div>
+    <div class="fs-cell formula-col">$$\frac{F}{L} = \frac{\mu_0 I_1 I_2}{2\pi d}$$</div>
+    <div class="fs-cell">$d$ = מרחק בין התילים.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">שטף מגנטי</div>
+    <div class="fs-cell formula-col">$$\Phi = BA\cos\theta \quad [\mathrm{Wb}]$$</div>
+    <div class="fs-cell">$\theta$ = זווית בין $\vec{B}$ לנורמל ללולאה.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">חוק פרדיי</div>
+    <div class="fs-cell formula-col">$$|\varepsilon| = N\left|\frac{\Delta\Phi}{\Delta t}\right|$$</div>
+    <div class="fs-cell">$N$ = מספר כריכות. שינוי שטף גורם לכא"מ.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">כא"מ מתיל נע</div>
+    <div class="fs-cell formula-col">$$\varepsilon = BLv$$</div>
+    <div class="fs-cell">תיל אורך $L$ נע במהירות $v$ ניצבת ל-$B$.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">גנרטור AC</div>
+    <div class="fs-cell formula-col">$$\varepsilon(t) = \varepsilon_{max}\sin(\omega t)$$</div>
+    <div class="fs-cell">לולאה מסתובבת בשדה אחיד.</div>
+  </div>
+</div>
+
+<div class="fs-group">
+  <h3>🔢 קבועים חשובים</h3>
+  <div class="formula-grid">
+    <div class="formula-item">
+      <div class="f-name">קבוע קולון</div>
+      $$k = 9 \times 10^9 \; \mathrm{N \cdot m^2 / C^2}$$
+    </div>
+    <div class="formula-item">
+      <div class="f-name">מטען יסודי</div>
+      $$e = 1.6 \times 10^{-19} \; \mathrm{C}$$
+    </div>
+    <div class="formula-item">
+      <div class="f-name">מסת אלקטרון</div>
+      $$m_e = 9.11 \times 10^{-31} \; \mathrm{kg}$$
+    </div>
+    <div class="formula-item">
+      <div class="f-name">מסת פרוטון</div>
+      $$m_p = 1.67 \times 10^{-27} \; \mathrm{kg}$$
+    </div>
+    <div class="formula-item">
+      <div class="f-name">חדירות ריק</div>
+      $$\mu_0 = 4\pi \times 10^{-7} \; \mathrm{T \cdot m/A}$$
+    </div>
+    <div class="formula-item">
+      <div class="f-name">קבוע פרמיטיביות</div>
+      $$\varepsilon_0 = 8.85 \times 10^{-12} \; \mathrm{C^2/(N \cdot m^2)}$$
+    </div>
+  </div>
+</div>
+
+<div class="card card-orange" style="margin-top:28px;">
+  <div class="card-title">📐 טבלת יחידות מידה מרכזיות</div>
+  <table>
+    <tr><th>גודל</th><th>סימן</th><th>יחידה</th><th>פירוש</th></tr>
+    <tr><td>מטען</td><td>$q, Q$</td><td>קולון [C]</td><td>—</td></tr>
+    <tr><td>שדה חשמלי</td><td>$E$</td><td>N/C = V/m</td><td>כוח ליחידת מטען</td></tr>
+    <tr><td>פוטנציאל</td><td>$V$</td><td>וולט [V] = J/C</td><td>אנרגיה ליחידת מטען</td></tr>
+    <tr><td>קיבול</td><td>$C$</td><td>פאראד [F] = C/V</td><td>—</td></tr>
+    <tr><td>זרם</td><td>$I$</td><td>אמפר [A] = C/s</td><td>—</td></tr>
+    <tr><td>התנגדות</td><td>$R$</td><td>אוהם [Ω] = V/A</td><td>—</td></tr>
+    <tr><td>הספק</td><td>$P$</td><td>וואט [W] = J/s</td><td>—</td></tr>
+    <tr><td>שדה מגנטי</td><td>$B$</td><td>טסלה [T]</td><td>$T = kg/(A \cdot s^2)$</td></tr>
+    <tr><td>שטף מגנטי</td><td>$\Phi$</td><td>ובר [Wb] = T·m²</td><td>—</td></tr>
+    <tr><td>כא"מ</td><td>$\varepsilon$</td><td>וולט [V]</td><td>—</td></tr>
+  </table>
+</div>
+
+</div><!-- /section -->
+</div><!-- /chapter formulas -->
+
+<div style="text-align:center; margin: 40px 0 20px; color:#94a3b8; font-size:.85rem;">
+  <p>סיכום זה הוכן לפי מיקוד בגרות 2026 · חומר עיוני בלבד · בהצלחה! 🍀</p>
+</div>
+
+</div><!-- /content -->
+
+<script>
+(function () {
+  function wrapMath() {
+    document.querySelectorAll('mjx-container[display="true"]').forEach(function (el) {
+      if (el.parentNode && el.parentNode.classList.contains('math-scroll')) return;
+      var w = document.createElement('div');
+      w.className = 'math-scroll';
+      el.parentNode.insertBefore(w, el);
+      w.appendChild(el);
+    });
+  }
+
+  // Hook into MathJax promise if available
+  if (window.MathJax) {
+    var orig = MathJax.startup || {};
+    var promise = orig.promise;
+    if (promise && promise.then) {
+      promise.then(wrapMath);
+    }
+  }
+  // Always run on load + short delays as safety net
+  window.addEventListener('load', function () {
+    wrapMath();
+    setTimeout(wrapMath, 800);
+    setTimeout(wrapMath, 2000);
+  });
+})();
+</script>
+</body>
+</html>
