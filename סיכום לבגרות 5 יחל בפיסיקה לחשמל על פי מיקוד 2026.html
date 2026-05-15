@@ -580,33 +580,47 @@
   <p>פוטנציאל ממטען נקודתי $Q$:</p>
   <div class="eq">$$V = k \frac{Q}{r}$$</div>
   <p>אנרגיה פוטנציאלית של מטען $q$ בפוטנציאל $V$:</p>
-  <div class="eq">$$E_p = qV$$</div>
+  <div class="eq">$${U} = qV$$</div>
   <p>עבודה להזזת מטען $q$ בין שתי נקודות:</p>
   <div class="eq">$$W = q(V_A - V_B) = q \cdot \Delta V$$</div>
   <p>שינוי אנרגיה קינטית (שימור אנרגיה):</p>
-  <div class="eq">$$\Delta E_k = -\Delta E_p = q(V_A - V_B)$$</div>
+  <div class="eq">$$\Delta E_k = -\Delta {U} = q(V_A - V_B)$$</div>
+</div>
+<h4>חיבור מוליכים באלקטרוסטטיקה</h4>
+<div class="card card-blue">
+  <div class="card-title">תכונות מוליך בשיווי משקל אלקטרוסטטי</div>
+  <p>השדה החשמלי בתוך מוליך בשיווי משקל:</p>
+  <div class="eq">$$E_{inside} = 0$$</div>
+  <p>הפוטנציאל בכל נקודה בתוך המוליך ועל פניו קבוע:</p>
+  <div class="eq">$$V = \text{const}$$</div>
+  <p>כל המטען החופשי מתפזר על פני השטח החיצוני של המוליך.</p>
 </div>
 
-<h4>חיבור מוליכים (קבלים)</h4>
+<div class="card card-blue">
+  <div class="card-title">חיבור שני מוליכים כדוריים</div>
+  <p>בעת חיבור שני כדורים בעלי רדיוסים $R_1, R_2$ ומטענים $Q_1, Q_2$ בתיל מוליך, הפוטנציאל מתאזן:</p>
+  <div class="eq">$$V_1 = V_2 \Rightarrow k\frac{Q_1'}{R_1} = k\frac{Q_2'}{R_2}$$</div>
+  <p>שימור המטען הכולל:</p>
+  <div class="eq">$$Q_1' + Q_2' = Q_1 + Q_2$$</div>
+  <p>המטען המחודש על כל כדור:</p>
+  <div class="eq">$$Q_1' = (Q_1 + Q_2)\frac{R_1}{R_1 + R_2}, \quad Q_2' = (Q_1 + Q_2)\frac{R_2}{R_1 + R_2}$$</div>
+</div>
+
+<div class="card card-blue">
+  <div class="card-title">צפיפות מטען על פני המוליך</div>
+  <p>צפיפות המטען השטחית $\sigma$ לאחר החיבור:</p>
+  <div class="eq">$$\sigma = \frac{Q'}{4\pi R^2}$$</div>
+  <p>ככל שהרדיוס קטן יותר, צפיפות המטען גדולה יותר:</p>
+  <div class="eq">$$\frac{\sigma_1}{\sigma_2} = \frac{R_2}{R_1}$$</div>
+  <p>השדה החשמלי בסמוך לפני המוליך:</p>
+  <div class="eq">$$E = \frac{\sigma}{\varepsilon_0}$$</div>
+</div>
+
 <div class="formula-grid">
   <div class="formula-item">
-    <div class="f-name">קבל – קיבול</div>
+    <div class="f-name">  קיבול </div>
     $$C = \frac{Q}{V}$$
     <small>יחידות: פאראד [F]</small>
-  </div>
-  <div class="formula-item">
-    <div class="f-name">קבלים במקביל</div>
-    $$C_{total} = C_1 + C_2 + \cdots$$
-    <small>מתח זהה על כל קבל</small>
-  </div>
-  <div class="formula-item">
-    <div class="f-name">קבלים בטור</div>
-    $$\frac{1}{C_{total}} = \frac{1}{C_1} + \frac{1}{C_2} + \cdots$$
-    <small>מטען זהה על כל קבל</small>
-  </div>
-  <div class="formula-item">
-    <div class="f-name">אנרגיה מאוחסנת בקבל</div>
-    $$E = \frac{1}{2}CV^2 = \frac{Q^2}{2C} = \frac{QV}{2}$$
   </div>
 </div>
 
@@ -651,16 +665,16 @@
   <p><strong>השטח מתחת:</strong> $\frac{1}{2}QV$ = האנרגיה המאוחסנת בקבל.</p>
 </div>
 
-<!-- 1.3 Example -->
-<h3>📝 1.3 שאלה לדוגמה</h3>
+<!-- 4.1 Example -->
+<h3>📝 4.1 שאלה לדוגמה</h3>
 <div class="question-box">
   <div class="q-label">שאלה – ברמת בגרות</div>
-  <p>שני לוחות קבל מטוסיים, מקבילים, מרוחקים $d = 4 \; \mathrm{cm}$ זה מזה. מתח בין הלוחות $U = 800 \; \mathrm{V}$.</p>
-  <p>פרוטון (מסה $m_p = 1.67 \times 10^{-27} \; \mathrm{kg}$, מטען $e = 1.6 \times 10^{-19} \; \mathrm{C}$) נורה <strong>ניצב</strong> לקווי השדה עם מהירות $v_0 = 3 \times 10^5 \; \mathrm{m/s}$ ממרחק $d/2$ מהלוח השלילי.</p>
-  <p><strong>א.</strong> חשב את עוצמת השדה החשמלי בין הלוחות.</p>
-  <p><strong>ב.</strong> חשב את התאוצה של הפרוטון.</p>
-  <p><strong>ג.</strong> הגרף שלהלן מציג את $v_y$ (מהירות בכיוון השדה) כפונקציה של הזמן. מה מייצג שיפוע הגרף? חשב את מהירות הפרוטון לאחר $t = 10 \; \mathrm{ns}$ בתוך הקבל.</p>
-  <p><strong>ד.</strong> האם הפרוטון יגיע ללוח החיובי? הסבר.</p>
+  <p>שני כדורים מוליכים מבודדים: כדור A בעל רדיוס $R_1 = 3 \; \mathrm{cm}$ ומטען $Q_1 = +12 \; \mathrm{\mu C}$, וכדור B בעל רדיוס $R_2 = 6 \; \mathrm{cm}$ ומטען $Q_2 = -6 \; \mathrm{\mu C}$, מרוחקים זה מזה $r = 0.5 \; \mathrm{m}$ (מרכז למרכז).</p>
+  <p><strong>א.</strong> חשב את כוח הקולון בין הכדורים לפני החיבור. האם הכוח מושך או דוחה?</p>
+  <p><strong>ב.</strong> חשב את השדה החשמלי הנוצר על ידי כדור A בלבד, בנקודה הנמצאת על פני כדור B (במרחק $r = 0.5\;\mathrm{m}$ ממרכז A). מה כיוון השדה?</p>
+  <p><strong>ג.</strong> חשב את הפוטנציאל של כל כדור לפני החיבור ואת האנרגיה הפוטנציאלית של המערכת.</p>
+  <p><strong>ד.</strong> הכדורים מחוברים בתיל מוליך עד לשיווי משקל. חשב את המטען על כל כדור ואת הפוטנציאל המשותף לאחר החיבור.</p>
+  <p><strong>ה.</strong> אלקטרון (מטען $e = -1.6\times10^{-19}\;\mathrm{C}$, מסה $m_e = 9.11\times10^{-31}\;\mathrm{kg}$) משוחרר ממנוחה בנקודה שבה הפוטנציאל הוא $V_A = 6\times10^5\;\mathrm{V}$ ונע לעבר נקודה שבה $V_B = 0\;\mathrm{V}$. חשב את מהירותו בנקודה B.</p>
 </div>
 
 <div class="answer-box">
@@ -670,46 +684,60 @@
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-body">
-        <strong>שדה חשמלי בין לוחות (שדה אחיד):</strong>
-        <div class="eq">$$E = \frac{U}{d} = \frac{800}{0.04} = 2 \times 10^4 \; \mathrm{V/m}$$</div>
-        <p>השדה אחיד ומכוון מהלוח החיובי לשלילי.</p>
+        <strong>כוח קולון בין הכדורים (חוק קולון):</strong>
+        <div class="eq">$$F = k\frac{|Q_1||Q_2|}{r^2} = 9\times10^9 \cdot \frac{12\times10^{-6} \cdot 6\times10^{-6}}{(0.5)^2} = 9\times10^9 \cdot \frac{72\times10^{-12}}{0.25} \approx 2.59 \; \mathrm{N}$$</div>
+        <p>מכיוון שהמטענים בעלי <strong>סימנים הפוכים</strong> – הכוח <strong>מושך</strong>, פועל לאורך הקו המחבר את מרכזי הכדורים.</p>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-body">
-        <strong>תאוצה של הפרוטון:</strong>
-        <div class="eq">$$F = eE = 1.6 \times 10^{-19} \times 2 \times 10^4 = 3.2 \times 10^{-15} \; \mathrm{N}$$</div>
-        <div class="eq">$$a = \frac{F}{m_p} = \frac{3.2 \times 10^{-15}}{1.67 \times 10^{-27}} \approx 1.92 \times 10^{12} \; \mathrm{m/s^2}$$</div>
-        <p>כיוון התאוצה: לעבר הלוח החיובי (כיוון השדה, כי הפרוטון חיובי).</p>
+        <strong>שדה חשמלי של כדור A בנקודת מיקום כדור B:</strong>
+        <div class="eq">$$E = k\frac{Q_1}{r^2} = 9\times10^9 \cdot \frac{12\times10^{-6}}{(0.5)^2} = 4.32\times10^5 \; \mathrm{V/m}$$</div>
+        <p>כיוון השדה: מ-A לעבר B (מהמטען החיובי החוצה), כלומר לעבר כדור B השלילי.</p>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-body">
-        <strong>ניתוח גרף $v_y$-$t$:</strong>
-        <p>מכיוון שהתאוצה <strong>קבועה</strong>, גרף $v_y$-$t$ הוא <strong>קו ישר</strong>.</p>
-        <p>שיפוע הגרף = $a \approx 1.92 \times 10^{12} \; \mathrm{m/s^2}$</p>
-        <p>לאחר $t = 10 \; \mathrm{ns} = 10 \times 10^{-9} \; \mathrm{s}$:</p>
-        <div class="eq">$$v_y = at = 1.92 \times 10^{12} \times 10 \times 10^{-9} = 1.92 \times 10^4 \; \mathrm{m/s}$$</div>
-        <p>מהירות כוללת:</p>
-        <div class="eq">$$v = \sqrt{v_0^2 + v_y^2} = \sqrt{(3 \times 10^5)^2 + (1.92 \times 10^4)^2} \approx 3.006 \times 10^5 \; \mathrm{m/s}$$</div>
+        <strong>פוטנציאל כל כדור ואנרגיה פוטנציאלית לפני החיבור:</strong>
+        <div class="eq">$$V_1 = k\frac{Q_1}{R_1} = 9\times10^9 \cdot \frac{12\times10^{-6}}{0.03} = 3.6\times10^6 \; \mathrm{V}$$</div>
+        <div class="eq">$$V_2 = k\frac{Q_2}{R_2} = 9\times10^9 \cdot \frac{-6\times10^{-6}}{0.06} = -9\times10^5 \; \mathrm{V}$$</div>
+        <p>אנרגיה פוטנציאלית של המערכת:</p>
+        <div class="eq">$$U = k\frac{Q_1 Q_2}{r} = 9\times10^9 \cdot \frac{12\times10^{-6}\cdot(-6\times10^{-6})}{0.5} = -1.296 \; \mathrm{J}$$</div>
+        <p>הערך השלילי מאשר שהמערכת <strong>מושכת</strong> – נדרשת עבודה חיצונית להפרידה.</p>
       </div>
     </div>
 
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-body">
-        <strong>האם הפרוטון יגיע ללוח?</strong>
-        <p>הפרוטון מתחיל במרחק $d/2 = 2 \; \mathrm{cm}$ מהלוח השלילי ומואץ לעבר הלוח <strong>החיובי</strong>.</p>
-        <p>מרחק לעבר הלוח החיובי: $d/2 = 0.02 \; \mathrm{m}$.</p>
-        <p>בדיקה: מהו הזמן להגיע ללוח?</p>
-        <div class="eq">$$0.02 = \frac{1}{2} \times 1.92 \times 10^{12} \times t^2 \Rightarrow t \approx 4.56 \times 10^{-9} \; \mathrm{s} = 4.56 \; \mathrm{ns}$$</div>
-        <p>בזמן זה, תזוזה ניצבת (בכיוון $v_0$):</p>
-        <div class="eq">$$x = v_0 \cdot t = 3 \times 10^5 \times 4.56 \times 10^{-9} = 1.37 \times 10^{-3} \; \mathrm{m}$$</div>
-        <p><strong>מסקנה:</strong> אם רוחב הלוחות גדול מ-$1.37 \; \mathrm{mm}$, הפרוטון יגיע ללוח החיובי.</p>
+        <strong>לאחר חיבור בתיל – שיווי משקל אלקטרוסטטי:</strong>
+        <p>בתוך המוליך $E = 0$, הפוטנציאל אחיד: $V_1' = V_2'$</p>
+        <p>שימור מטען כולל:</p>
+        <div class="eq">$$Q_1' + Q_2' = 12 + (-6) = +6 \; \mathrm{\mu C}$$</div>
+        <p>תנאי שיווי משקל $\Rightarrow \dfrac{Q_1'}{R_1} = \dfrac{Q_2'}{R_2}$, כלומר $Q_2' = 2Q_1'$</p>
+        <div class="eq">$$3Q_1' = 6 \; \mathrm{\mu C} \Rightarrow Q_1' = 2 \; \mathrm{\mu C}, \quad Q_2' = 4 \; \mathrm{\mu C}$$</div>
+        <p>פוטנציאל משותף:</p>
+        <div class="eq">$$V = k\frac{Q_1'}{R_1} = 9\times10^9 \cdot \frac{2\times10^{-6}}{0.03} = 6\times10^5 \; \mathrm{V}$$</div>
+        <p>אימות: $k\dfrac{Q_2'}{R_2} = 9\times10^9 \cdot \dfrac{4\times10^{-6}}{0.06} = 6\times10^5 \; \mathrm{V}$ ✓</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <strong>מהירות האלקטרון (שימור אנרגיה):</strong>
+        <p>האלקטרון משוחרר ממנוחה: $E_{k,A} = 0$. נשתמש בשימור אנרגיה:</p>
+        <div class="eq">$$\Delta E_k = q(V_A - V_B)$$</div>
+        <div class="eq">$$\frac{1}{2}m_e v^2 = q(V_A - V_B) = (-1.6\times10^{-19})(6\times10^5 - 0)$$</div>
+        <div class="eq">$$= -9.6\times10^{-14} \; \mathrm{J}$$</div>
+        <p>שים לב: תוצאה שלילית פירושה שהאלקטרון <strong>לא יגיע</strong> לנקודה B אם נע מאזור פוטנציאל גבוה לנמוך – עליו לנוע <strong>מ-B ל-A</strong> (כיוון ההתאצה לאלקטרון הפוך לשדה). נחשב עבור תנועה מ-$V_B = 0$ ל-$V_A = 6\times10^5\;\mathrm{V}$:</p>
+        <div class="eq">$$\frac{1}{2}m_e v^2 = |q|\cdot|V_A - V_B| = 1.6\times10^{-19}\times6\times10^5 = 9.6\times10^{-14} \; \mathrm{J}$$</div>
+        <div class="eq">$$v = \sqrt{\frac{2\times9.6\times10^{-14}}{9.11\times10^{-31}}} \approx \sqrt{2.11\times10^{17}} \approx 4.59\times10^8 \; \mathrm{m/s}$$</div>
+        <p>ערך זה גבוה מהגבול הרלטיביסטי – בבגרות מקובל להציג את השלבים ולציין שיש להשתמש בתיקון רלטיביסטי במהירויות הקרובות למהירות האור.</p>
       </div>
     </div>
 
@@ -964,21 +992,21 @@
 <h4>כוח לורנץ – כוח מגנטי על מטען נע</h4>
 <div class="card card-purple">
   <div class="card-title">כוח לורנץ</div>
-  <div class="eq">$$F = qvB\sin\theta$$</div>
+  <div class="eq">$$F_B = qvB\sin\theta$$</div>
   <ul>
     <li>$q$ = מטען [C], $v$ = מהירות [m/s], $B$ = שדה מגנטי [T = טסלה]</li>
     <li>$\theta$ = זווית בין $\vec{v}$ ל-$\vec{B}$</li>
     <li>כיוון: כלל יד ימין: האגודל מצביע על כיוון הכוח ($F$), האצבע המורה על כיוון התנועה או הזרם ($v/I$) והאמה על כיוון השדה המגנטי ($B$)</li>
     <li>הכוח <strong>תמיד ניצב</strong> למהירות ← הוא לא מבצע עבודה </li>
   </ul>
-  <p><strong>תנועה מעגלית במגנט:</strong> $F_L = F_c$:</p>
+  <p><strong>תנועה מעגלית במגנט:</strong> $F_B = F_c$:</p>
   <div class="eq">$$qvB = \frac{mv^2}{r} \Rightarrow r = \frac{mv}{qB}$$</div>
 </div>
 
 <h4>כוח אמפר – כוח מגנטי על מוליך נושא זרם</h4>
 <div class="card card-purple">
   <div class="card-title">כוח אמפר</div>
-  <div class="eq">$$F = BIL\sin\theta$$</div>
+  <div class="eq">$$F_B = BIL\sin\theta$$</div>
   <ul>
     <li>$I$ = זרם [A], $L$ = אורך המוליך בשדה [m], $\theta$ = זווית בין $\vec{I}$ ל-$\vec{B}$</li>
     <li>כיוון: כלל יד ימין (או כלל האגרוף). אצבעות לכיוון הזרם, כיפוף לכיוון $\vec{B}$ .</li>
@@ -1213,7 +1241,7 @@
   </div>
   <div class="fs-row">
     <div class="fs-cell">אנרגיה פוטנציאלית</div>
-    <div class="fs-cell formula-col">$$E_p = qV$$</div>
+    <div class="fs-cell formula-col">$${U} = qV$$</div>
     <div class="fs-cell">של מטען $q$ בפוטנציאל $V$.</div>
   </div>
   <div class="fs-row">
@@ -1223,7 +1251,7 @@
   </div>
   <div class="fs-row">
     <div class="fs-cell">שימור אנרגיה</div>
-    <div class="fs-cell formula-col">$$\Delta E_k + \Delta E_p = 0$$</div>
+    <div class="fs-cell formula-col">$$\Delta E_k + \Delta {U} = 0$$</div>
     <div class="fs-cell">מערכת שמרנית (ללא חיכוך).</div>
   </div>
   <div class="fs-row">
@@ -1231,20 +1259,8 @@
     <div class="fs-cell formula-col">$$C = \frac{Q}{V} \quad [F]$$</div>
     <div class="fs-cell">של קבל; $V$ = הפרש מתח בין הלוחות.</div>
   </div>
-  <div class="fs-row">
-    <div class="fs-cell">אנרגיה בקבל</div>
-    <div class="fs-cell formula-col">$$E_{cap} = \frac{1}{2}CV^2 = \frac{Q^2}{2C}$$</div>
-    <div class="fs-cell">אנרגיה מאוחסנת בשדה בין הלוחות.</div>
-  </div>
-  <div class="fs-row">
-    <div class="fs-cell">קבלים בטור</div>
-    <div class="fs-cell formula-col">$$\frac{1}{C_T} = \frac{1}{C_1} + \frac{1}{C_2}$$</div>
-    <div class="fs-cell">מטען שווה, מתח מתחלק.</div>
-  </div>
-  <div class="fs-row">
-    <div class="fs-cell">קבלים במקביל</div>
-    <div class="fs-cell formula-col">$$C_T = C_1 + C_2$$</div>
-    <div class="fs-cell">מתח שווה, מטען מתחלק.</div>
+ 
+  
   </div>
   <div class="fs-row">
     <div class="fs-cell">תאוצה בשדה אחיד</div>
