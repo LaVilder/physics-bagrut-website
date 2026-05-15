@@ -16,6 +16,7 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" crossorigin="anonymous"></script>
   <style>
+    
     @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap');
  /* 2. Reset default browser spaces so elements don't shift unexpectedly */
         * {
@@ -616,12 +617,15 @@
   <div class="eq">$$E = \frac{\sigma}{\varepsilon_0}$$</div>
 </div>
 
-<div class="formula-grid">
-  <div class="formula-item">
-    <div class="f-name">  קיבול </div>
-    $$C = \frac{Q}{V}$$
-    <small>יחידות: פאראד [F]</small>
-  </div>
+<div class="card card-blue">
+  <div class="card-title">קיבול</div>
+  <div class="eq">$$C = \frac{Q}{V}$$</div>
+  <ul>
+    <li>$C$ = קיבול [פאראד - F]; יכולת האחסון של המטען בקבל.</li>
+    <li>$Q$ = המטען החשמלי [קולון - C] על לוחות הקבל.</li>
+    <li>$V$ = הפרש הפוטנציאל (מתח) [וולט - V] בין הלוחות.</li>
+  </ul>
+  <p>קיבול קבוע עבור כל קבל – מטענים גדולים יותר דורשים מתח גבוה יותר.</p>
 </div>
 
 <h4>תנועת מטען בשדה אחיד</h4>
@@ -722,7 +726,8 @@
         <div class="eq">$$3Q_1' = 6 \; \mathrm{\mu C} \Rightarrow Q_1' = 2 \; \mathrm{\mu C}, \quad Q_2' = 4 \; \mathrm{\mu C}$$</div>
         <p>פוטנציאל משותף:</p>
         <div class="eq">$$V = k\frac{Q_1'}{R_1} = 9\times10^9 \cdot \frac{2\times10^{-6}}{0.03} = 6\times10^5 \; \mathrm{V}$$</div>
-        <p>אימות: $k\dfrac{Q_2'}{R_2} = 9\times10^9 \cdot \dfrac{4\times10^{-6}}{0.06} = 6\times10^5 \; \mathrm{V}$ ✓</p>
+        <p>אימות:<p>
+        <div class="eq">$$k\dfrac{Q_2'}{R_2} = 9\times10^9 \cdot \dfrac{4\times10^{-6}}{0.06} = 6\times10^5 \; \mathrm{V}$$</div>
       </div>
     </div>
 
@@ -946,7 +951,8 @@
       <div class="step-body">
         <strong>הספקים:</strong>
         <p>המתח על $R_{ext}$ (= $V_{terminal}$) = $8.78 \; \mathrm{V}$.</p>
-        <p>זרם בענף $R_{12}$: $I_{12} = \dfrac{V_{terminal}}{R_{12}} = \dfrac{8.78}{10} = 0.878 \; \mathrm{A}$</p>
+        <p>זרם בענף $R_{12}$:
+          <div class="eq">$$I_{12} = \dfrac{V_{terminal}}{R_{12}} = \dfrac{8.78}{10} = 0.878 \; \mathrm{A}$$</div>
         <p>זרם ב-$R_3$: $I_3 = \dfrac{8.78}{12} = 0.732 \; \mathrm{A}$</p>
         <div class="eq">$$P_1 = I_{12}^2 R_1 = (0.878)^2 \times 4 \approx 3.08 \; \mathrm{W}$$</div>
         <div class="eq">$$P_2 = I_{12}^2 R_2 = (0.878)^2 \times 6 \approx 4.63 \; \mathrm{W}$$</div>
@@ -1200,9 +1206,96 @@
   <div class="ch-num">נספח</div>
   <h2>📋 דף נוסחאות מפורט</h2>
 </div>
+
+<div style="background: #f8fafc; padding: 16px; border-radius: 8px; margin-bottom: 24px;">
+  <div style="font-weight: 600; margin-bottom: 12px; color: #1e293b;">📑 ניווט לפרקים:</div>
+  <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+    <a href="#mechanics" style="padding: 8px 12px; background: #dbeafe; color: #1a3a5c; text-decoration: none; border-radius: 6px; font-weight: 500; transition: background 0.2s;">🔧 מכניקה - קינמטיקה</a>
+    <a href="#energy" style="padding: 8px 12px; background: #dcfce7; color: #14532d; text-decoration: none; border-radius: 6px; font-weight: 500; transition: background 0.2s;">⚙️ עבודה ואנרגיה</a>
+    <a href="#electrostatics" style="padding: 8px 12px; background: #fee2e2; color: #7f1d1d; text-decoration: none; border-radius: 6px; font-weight: 500; transition: background 0.2s;">⚡ אלקטרוסטטיקה</a>
+    <a href="#circuits" style="padding: 8px 12px; background: #ede9fe; color: #4c1d95; text-decoration: none; border-radius: 6px; font-weight: 500; transition: background 0.2s;">🔋 מעגלי זרם</a>
+    <a href="#magnetism" style="padding: 8px 12px; background: #ffedd5; color: #7c2d12; text-decoration: none; border-radius: 6px; font-weight: 500; transition: background 0.2s;">🧲 מגנטיות</a>
+    <a href="#circular" style="padding: 8px 12px; background: #e0e7ff; color: #312e81; text-decoration: none; border-radius: 6px; font-weight: 500; transition: background 0.2s;">⭕ תנועה מעגלית</a>
+    <a href="#constants" style="padding: 8px 12px; background: #f3e8ff; color: #5b21b6; text-decoration: none; border-radius: 6px; font-weight: 500; transition: background 0.2s;">🔢 קבועים</a>
+  </div>
+</div>
+
 <div class="section">
 
-<div class="fs-group">
+<div class="fs-group" id="mechanics">
+  <h3>🔧 מכניקה - קינמטיקה</h3>
+  <div class="fs-row">
+    <div class="fs-cell fs-head">שם</div>
+    <div class="fs-cell fs-head">נוסחה</div>
+    <div class="fs-cell fs-head">תנאי שימוש</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">תנועה ישרה תאוצה קבועה</div>
+    <div class="fs-cell formula-col">$$x = x_0 + v_0 t + \frac{1}{2}at^2 \quad [\mathrm{m}]$$</div>
+    <div class="fs-cell">$x_0$ = מיקום [m], $v_0$ = מהירות [m/s], $a$ = תאוצה [m/s²], $t$ = זמן [s].</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">מהירות בתאוצה קבועה</div>
+    <div class="fs-cell formula-col">$$v = v_0 + at \quad [\mathrm{m/s}]$$</div>
+    <div class="fs-cell">$v$ = מהירות [m/s], $v_0$ = מהירות התחלתית [m/s], $a$ = תאוצה [m/s²].</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">משוואה ללא זמן</div>
+    <div class="fs-cell formula-col">$$v^2 = v_0^2 + 2a(x - x_0) \quad [\mathrm{m^2/s^2}]$$</div>
+    <div class="fs-cell">קשר בין מהירות, תאוצה ותזוזה ללא תלות בזמן.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">חוק שני של ניוטון</div>
+    <div class="fs-cell formula-col">$$F = ma \quad [\mathrm{N}]$$</div>
+    <div class="fs-cell">$F$ = כוח [N], $m$ = מסה [kg], $a$ = תאוצה [m/s²].</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">משקל</div>
+    <div class="fs-cell formula-col">$$F_g = mg \quad [\mathrm{N}]$$</div>
+    <div class="fs-cell">$F_g$ = משקל [N], $m$ = מסה [kg], $g \approx 10 \; \mathrm{m/s^2}$.</div>
+  </div>
+</div>
+
+<div class="fs-group" id="energy">
+  <h3>⚙️ עבודה ואנרגיה</h3>
+  <div class="fs-row">
+    <div class="fs-cell fs-head">שם</div>
+    <div class="fs-cell fs-head">נוסחה</div>
+    <div class="fs-cell fs-head">תנאי שימוש</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">עבודה</div>
+    <div class="fs-cell formula-col">$$W = F \cdot d \cdot \cos\theta$$</div>
+    <div class="fs-cell">$F$ = כוח, $d$ = תזוזה, $\theta$ = זווית ביניהם. $[J]$.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">אנרגיה קינטית</div>
+    <div class="fs-cell formula-col">$$E_k = \frac{1}{2}mv^2 \quad [\mathrm{J}]$$</div>
+    <div class="fs-cell">$E_k$ = אנרגיה קינטית [J], $m$ = מסה [kg], $v$ = מהירות [m/s].</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">אנרגיה פוטנציאלית כבידה</div>
+    <div class="fs-cell formula-col">$$U_g = mgh \quad [\mathrm{J}]$$</div>
+    <div class="fs-cell">$U_g$ = אנרגיה פוטנציאלית [J], $m$ = מסה [kg], $g$ = תאוצה כבידה [m/s²], $h$ = גובה [m].</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">עבודה משפחת אנרגיה</div>
+    <div class="fs-cell formula-col">$$W = \Delta E_k \quad [\mathrm{J}]$$</div>
+    <div class="fs-cell">$W$ = עבודה [J], $\Delta E_k$ = שינוי באנרגיה קינטית [J].</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">שימור אנרגיה מכנית</div>
+    <div class="fs-cell formula-col">$$E_k + U_g = \text{const} \quad [\mathrm{J}]$$</div>
+    <div class="fs-cell">סכום האנרגיה הקינטית והפוטנציאלית קבוע; ללא חיכוך או כוחות חיצוניים.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">הספק</div>
+    <div class="fs-cell formula-col">$$P = \frac{W}{t} = Fv \quad [\mathrm{W}]$$</div>
+    <div class="fs-cell">$P$ = הספק [W], $W$ = עבודה [J], $t$ = זמן [s], $F$ = כוח [N], $v$ = מהירות [m/s].</div>
+  </div>
+</div>
+
+<div class="fs-group" id="electrostatics">
   <h3>⚡ אלקטרוסטטיקה</h3>
   <div class="fs-row">
     <div class="fs-cell fs-head">שם</div>
@@ -1231,8 +1324,8 @@
   </div>
   <div class="fs-row">
     <div class="fs-cell">כוח על מטען בשדה</div>
-    <div class="fs-cell formula-col">$$F = qE$$</div>
-    <div class="fs-cell">כולל סימן; $q<0$ ← כיוון הפוך לשדה.</div>
+    <div class="fs-cell formula-col">$$F = qE \quad [\mathrm{N}]$$</div>
+    <div class="fs-cell">$F$ = כוח [N], $q$ = מטען [C], $E$ = שדה [N/C].</div>
   </div>
   <div class="fs-row">
     <div class="fs-cell">פוטנציאל ממטען נקודתי</div>
@@ -1241,18 +1334,18 @@
   </div>
   <div class="fs-row">
     <div class="fs-cell">אנרגיה פוטנציאלית</div>
-    <div class="fs-cell formula-col">$${U} = qV$$</div>
-    <div class="fs-cell">של מטען $q$ בפוטנציאל $V$.</div>
+    <div class="fs-cell formula-col">$${U} = qV \quad [\mathrm{J}]$$</div>
+    <div class="fs-cell">$U$ = אנרגיה פוטנציאלית [J], $q$ = מטען [C], $V$ = פוטנציאל [V].</div>
   </div>
   <div class="fs-row">
     <div class="fs-cell">עבודה</div>
-    <div class="fs-cell formula-col">$$W = q(V_A - V_B)$$</div>
-    <div class="fs-cell">עבודת הכוח החשמלי להזזת $q$ מ-$A$ ל-$B$.</div>
+    <div class="fs-cell formula-col">$$W = q(V_A - V_B) \quad [\mathrm{J}]$$</div>
+    <div class="fs-cell">$W$ = עבודה [J], $q$ = מטען [C], $V_A, V_B$ = פוטנציאל [V].</div>
   </div>
   <div class="fs-row">
     <div class="fs-cell">שימור אנרגיה</div>
-    <div class="fs-cell formula-col">$$\Delta E_k + \Delta {U} = 0$$</div>
-    <div class="fs-cell">מערכת שמרנית (ללא חיכוך).</div>
+    <div class="fs-cell formula-col">$$\Delta E_k + \Delta {U} = 0 \quad [\mathrm{J}]$$</div>
+    <div class="fs-cell">$\Delta E_k$ = שינוי אנרגיה קינטית [J], $\Delta U$ = שינוי אנרגיה פוטנציאלית [J].</div>
   </div>
   <div class="fs-row">
     <div class="fs-cell">קיבול</div>
@@ -1269,7 +1362,7 @@
   </div>
 </div>
 
-<div class="fs-group">
+<div class="fs-group" id="circuits">
   <h3>🔋 מעגלי זרם ישר</h3>
   <div class="fs-row">
     <div class="fs-cell fs-head">שם</div>
@@ -1283,13 +1376,13 @@
   </div>
   <div class="fs-row">
     <div class="fs-cell">חוק אום</div>
-    <div class="fs-cell formula-col">$$V = IR$$</div>
-    <div class="fs-cell">נגד אוהמי. $R$ = קבוע, ללא תלות ב-$I$.</div>
+    <div class="fs-cell formula-col">$$V = IR \quad [\mathrm{V}]$$</div>
+    <div class="fs-cell">$V$ = מטח [V], $I$ = זרים [A], $R$ = התנגדות [Ω] (קבועה).</div>
   </div>
   <div class="fs-row">
     <div class="fs-cell">התנגדות תיל</div>
-    <div class="fs-cell formula-col">$$R = \rho\frac{L}{A}$$</div>
-    <div class="fs-cell">$\rho$ = נגדיות [$\Omega\cdot\mathrm{m}$]; $A$ = שטח חתך.</div>
+    <div class="fs-cell formula-col">$$R = \rho\frac{L}{A} \quad [\Omega]$$</div>
+    <div class="fs-cell">$R$ = התנגדות [Ω], $\rho$ = נגדיות [Ω·m], $L$ = אורך [מ], $A$ = שטח חתך [m²].</div>
   </div>
   <div class="fs-row">
     <div class="fs-cell">נגדים בטור</div>
@@ -1308,8 +1401,8 @@
   </div>
   <div class="fs-row">
     <div class="fs-cell">מתח הדקים</div>
-    <div class="fs-cell formula-col">$$V_t = \varepsilon - Ir$$</div>
-    <div class="fs-cell">$\varepsilon$ = כא"מ, $r$ = התנגדות פנימית. במעגל סגור.</div>
+    <div class="fs-cell formula-col">$$V_t = \varepsilon - Ir \quad [\mathrm{V}]$$</div>
+    <div class="fs-cell">$V_t$ = מטח הדקים [V], $\varepsilon$ = כא"מ [V], $I$ = זרים [A], $r$ = התנגדות הפנימית [Ω].</div>
   </div>
   <div class="fs-row">
     <div class="fs-cell">זרם במעגל</div>
@@ -1333,7 +1426,7 @@
   </div>
 </div>
 
-<div class="fs-group">
+<div class="fs-group" id="magnetism">
   <h3>🧲 מגנטיות והשראה</h3>
   <div class="fs-row">
     <div class="fs-cell fs-head">שם</div>
@@ -1342,23 +1435,23 @@
   </div>
   <div class="fs-row">
     <div class="fs-cell">כוח לורנץ</div>
-    <div class="fs-cell formula-col">$$F = qvB\sin\theta$$</div>
-    <div class="fs-cell">מטען $q$ בשדה $B$, $v$ = מהירות, $\theta$ = זווית ביניהם.</div>
+    <div class="fs-cell formula-col">$$F = qvB\sin\theta \quad [\mathrm{N}]$$</div>
+    <div class="fs-cell">$F$ = כוח [N], $q$ = מטען [C], $v$ = מהירות [m/s], $B$ = שדה מגנטי [T].</div>
   </div>
   <div class="fs-row">
     <div class="fs-cell">רדיוס תנועה מעגלית</div>
-    <div class="fs-cell formula-col">$$r = \frac{mv}{qB}$$</div>
-    <div class="fs-cell">חלקיק בשדה מגנטי; $v \perp B$.</div>
+    <div class="fs-cell formula-col">$$r = \frac{mv}{qB} \quad [\mathrm{m}]$$</div>
+    <div class="fs-cell">$r$ = רדיוס [מ], $m$ = מסה [kg], $v$ = מהירות [m/s], $q$ = מטען [C], $B$ = שדה מגנטי [T].</div>
   </div>
   <div class="fs-row">
     <div class="fs-cell">כוח אמפר</div>
-    <div class="fs-cell formula-col">$$F = BIL\sin\theta$$</div>
-    <div class="fs-cell">מוליך אורך $L$ נושא זרם $I$ בשדה $B$.</div>
+    <div class="fs-cell formula-col">$$F = BIL\sin\theta \quad [\mathrm{N}]$$</div>
+    <div class="fs-cell">$F$ = כוח [N], $B$ = שדה מגנטי [T], $I$ = זרים [A], $L$ = אורך מוביל [מ].</div>
   </div>
   <div class="fs-row">
     <div class="fs-cell">שדה של תיל ישר</div>
-    <div class="fs-cell formula-col">$$B = \frac{\mu_0 I}{2\pi r}$$</div>
-    <div class="fs-cell">במרחק $r$ מתיל נושא זרם $I$. $\mu_0 = 4\pi\times10^{-7}$.</div>
+    <div class="fs-cell formula-col">$$B = \frac{\mu_0 I}{2\pi r} \quad [\mathrm{T}]$$</div>
+    <div class="fs-cell">$B$ = שדה מגנטי [T], $\mu_0 = 4\pi\times10^{-7}$ [T·m/A], $I$ = זרים [A], $r$ = מרחק [מ].</div>
   </div>
   <div class="fs-row">
     <div class="fs-cell">שדה בתוך סליל</div>
@@ -1367,8 +1460,8 @@
   </div>
   <div class="fs-row">
     <div class="fs-cell">כוח בין תילים מקבילים</div>
-    <div class="fs-cell formula-col">$$\frac{F}{L} = \frac{\mu_0 I_1 I_2}{2\pi d}$$</div>
-    <div class="fs-cell">$d$ = מרחק בין התילים.</div>
+    <div class="fs-cell formula-col">$$\frac{F}{L} = \frac{\mu_0 I_1 I_2}{2\pi d} \quad [\mathrm{N/m}]$$</div>
+    <div class="fs-cell">$F/L$ = כוח לאורך [N/m], $\mu_0 = 4\pi\times10^{-7}$ [T·m/A], $I_1, I_2$ = זרימים [A], $d$ = מרחק [מ].</div>
   </div>
   <div class="fs-row">
     <div class="fs-cell">שטף מגנטי</div>
@@ -1377,22 +1470,51 @@
   </div>
   <div class="fs-row">
     <div class="fs-cell">חוק פרדיי</div>
-    <div class="fs-cell formula-col">$$|\varepsilon| = N\left|\frac{\Delta\Phi}{\Delta t}\right|$$</div>
-    <div class="fs-cell">$N$ = מספר כריכות. שינוי שטף גורם לכא"מ.</div>
+    <div class="fs-cell formula-col">$$|\varepsilon| = N\left|\frac{\Delta\Phi}{\Delta t}\right| \quad [\mathrm{V}]$$</div>
+    <div class="fs-cell">$\varepsilon$ = כא"מ בדוק [V], $N$ = מספר כריכות, $\Delta\Phi$ = שינוי שטף מגנטי [Wb], $\Delta t$ = שינוי זמן [s].</div>
   </div>
   <div class="fs-row">
     <div class="fs-cell">כא"מ מתיל נע</div>
-    <div class="fs-cell formula-col">$$\varepsilon = BLv$$</div>
-    <div class="fs-cell">תיל אורך $L$ נע במהירות $v$ ניצבת ל-$B$.</div>
+    <div class="fs-cell formula-col">$$\varepsilon = BLv \quad [\mathrm{V}]$$</div>
+    <div class="fs-cell">$\varepsilon$ = כא"מ [V], $B$ = שדה מגנטי [T], $L$ = אורך תיל [מ], $v$ = מהירות [m/s].</div>
   </div>
   <div class="fs-row">
     <div class="fs-cell">גנרטור AC</div>
-    <div class="fs-cell formula-col">$$\varepsilon(t) = \varepsilon_{max}\sin(\omega t)$$</div>
-    <div class="fs-cell">לולאה מסתובבת בשדה אחיד.</div>
+    <div class="fs-cell formula-col">$$\varepsilon(t) = \varepsilon_{max}\sin(\omega t) \quad [\mathrm{V}]$$</div>
+    <div class="fs-cell">$\varepsilon(t)$ = כא"מ [V], $\varepsilon_{max}$ = כא"מ מקסימאלי [V], $\omega$ = מהירות זווית [rad/s].</div>
   </div>
 </div>
 
-<div class="fs-group">
+<div class="fs-group" id="circular">
+  <h3>⭕ תנועה מעגלית</h3>
+  <div class="fs-row">
+    <div class="fs-cell fs-head">שם</div>
+    <div class="fs-cell fs-head">נוסחה</div>
+    <div class="fs-cell fs-head">תנאי שימוש</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">כוח צנטריפטלי</div>
+    <div class="fs-cell formula-col">$$F_c = \frac{mv^2}{r} = m\omega^2 r$$</div>
+    <div class="fs-cell">כוח הנדרש לתנועה מעגלית; $\omega$ = מהירות זוויתית.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">מהירות זוויתית</div>
+    <div class="fs-cell formula-col">$$\omega = \frac{v}{r} = \frac{2\pi}{T} = 2\pi f$$</div>
+    <div class="fs-cell">$T$ = תקופה, $f$ = תדירות [Hz]. קשור למהירות לינארית $v$.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">תקופה וזמן מחזור</div>
+    <div class="fs-cell formula-col">$$T = \frac{2\pi r}{v} = \frac{2\pi}{\omega}$$</div>
+    <div class="fs-cell">זמן השלמת סיבוב אחד מלא; $r$ = רדיוס המסלול.</div>
+  </div>
+  <div class="fs-row">
+    <div class="fs-cell">תאוצה צנטריפטלית</div>
+    <div class="fs-cell formula-col">$$a_c = \frac{v^2}{r} = \omega^2 r$$</div>
+    <div class="fs-cell">תאוצה המכוונת למרכז המעגל; גודלה קבוע, כיוונה משתנה.</div>
+  </div>
+</div>
+
+<div class="fs-group" id="constants">
   <h3>🔢 קבועים חשובים</h3>
   <div class="formula-grid">
     <div class="formula-item">
@@ -1448,7 +1570,62 @@
 
 </div><!-- /content -->
 
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+/* Scroll button styling */
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 5px; /* Kept your new 5px placement */
+  right: 5px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: rgb(122, 98, 98); /* Kept your new color */
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 5px;
+  /* Restored semi-transparency and hover transition */
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+#myBtn:hover {
+  background-color: #555;
+  opacity: 1;
+}
+
+/* Optional: Add CSS for the MathJax wrapper to enable scrolling */
+.math-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+</style>
+</head>
+<body>
+
+<!-- Consolidated to a single button using the '↑' symbol you wanted -->
+<button onclick="topFunction()" id="myBtn" title="Go to top">↑</button>
+
+<div style="background-color:black;color:white;padding:30px">Scroll Down</div>
+<div style="background-color:lightgrey;padding:30px 30px 2500px">
+  This example demonstrates how to create a "scroll to top" button that becomes visible 
+  <strong>when the user starts to scroll the page</strong>.
+</div>
+
 <script>
+// ==========================================
+// 1. MathJax Wrapping Script
+// ==========================================
 (function () {
   function wrapMath() {
     document.querySelectorAll('mjx-container[display="true"]').forEach(function (el) {
@@ -1475,6 +1652,30 @@
     setTimeout(wrapMath, 2000);
   });
 })();
+
+// ==========================================
+// 2. Scroll to Top Script
+// ==========================================
+// Get the button
+let mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
 </script>
 </body>
+</html>
 </html>
