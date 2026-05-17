@@ -1624,56 +1624,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-}
+<button id="myBtn" title="חזור לראש העמוד">↑</button>
 
-/* Scroll button styling */
+<style>
 #myBtn {
   display: none;
   position: fixed;
-  bottom: 5px; /* Kept your new 5px placement */
-  right: 5px;
-  z-index: 99;
-  font-size: 12px;
+  bottom: 14px;
+  right: 14px;
+  z-index: 9999;
+  width: 60px;
+  height: 60px;
+  font-size: 20px;
+  font-weight: bold;
   border: none;
   outline: none;
-  background-color: rgb(122, 98, 98); /* Kept your new color */
-  color: white;
+  border-radius: 25%;
   cursor: pointer;
-  padding: 25px;
-  border-radius: 5px;
-  /* Restored semi-transparency and hover transition */
+  color: white;
+  background-color: #1a3a5c;
   opacity: 0.6;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s ease, background-color 0.4s ease, transform 0.2s ease;
+  line-height: 1;
+}
+
+/* כשנמצאים בפרק הנוסחאות – כחול ושקוף יותר */
+#myBtn.in-formulas {
+  
+  background-color: rgb(122, 98, 98);
+  opacity: 0.6;
 }
 
 #myBtn:hover {
-  background-color: #555;
-  opacity: 1;
+  opacity: 1 !important;
+  transform: scale(1.08);
 }
 
-/* Optional: Add CSS for the MathJax wrapper to enable scrolling */
-.math-scroll {
-  overflow-x: auto;
-  overflow-y: hidden;
+#myBtn.in-formulas:hover {
+  background-color: #2563a8;
 }
 </style>
-</head>
-<body>
-
-<!-- Consolidated to a single button using the '↑' symbol you wanted -->
-<button onclick="topFunction()" id="myBtn" title="Go to top">↑</button>
-
-
 
 <script>
-// ==========================================
-// 1. MathJax Wrapping Script
-// ==========================================
 (function () {
+  // ── MathJax Wrapping ──────────────────────────────────
   function wrapMath() {
     document.querySelectorAll('mjx-container[display="true"]').forEach(function (el) {
       if (el.parentNode && el.parentNode.classList.contains('math-scroll')) return;
@@ -1683,84 +1677,83 @@ body {
       w.appendChild(el);
     });
   }
-
-  // Hook into MathJax promise if available
   if (window.MathJax) {
-    var orig = MathJax.startup || {};
-    var promise = orig.promise;
-    if (promise && promise.then) {
-      promise.then(wrapMath);
-    }
+    var p = (MathJax.startup || {}).promise;
+    if (p && p.then) p.then(wrapMath);
   }
-  // Always run on load + short delays as safety net
   window.addEventListener('load', function () {
     wrapMath();
     setTimeout(wrapMath, 800);
     setTimeout(wrapMath, 2000);
   });
+
+  // ── Smooth Scroll Helper ──────────────────────────────
+  // משתמש ב-requestAnimationFrame לגלילה חלקה בכל דפדפן
+  function smoothScrollTo(targetY, duration) {
+    var startY = window.pageYOffset;
+    var diff = targetY - startY;
+    var startTime = null;
+
+    function easeInOutQuad(t) {
+      return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    }
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var elapsed = timestamp - startTime;
+      var progress = Math.min(elapsed / duration, 1);
+      window.scrollTo(0, startY + diff * easeInOutQuad(progress));
+      if (elapsed < duration) requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  // ── Button Logic ──────────────────────────────────────
+  var btn = document.getElementById('myBtn');
+
+  function isInFormulas() {
+    var sec = document.getElementById('formulas');
+    if (!sec) return false;
+    return sec.getBoundingClientRect().top <= 80;
+  }
+
+  window.addEventListener('scroll', function () {
+    var scrolled = window.pageYOffset;
+
+    // הצג/הסתר
+    btn.style.display = scrolled > 200 ? 'block' : 'none';
+
+    // צבע + tooltip לפי מיקום
+    if (isInFormulas()) {
+      btn.classList.add('in-formulas');
+      btn.title = 'חזור לתחילת דף הנוסחאות';
+    } else {
+      btn.classList.remove('in-formulas');
+      btn.title = 'חזור לראש העמוד';
+    }
+  });
+
+  btn.addEventListener('click', function () {
+    var formulasSection = document.getElementById('formulas');
+    var currentY = window.pageYOffset;
+
+    if (isInFormulas() && formulasSection) {
+      var header = formulasSection.querySelector('.chapter-header');
+      var targetY = header
+        ? header.getBoundingClientRect().top + currentY - 8
+        : 0;
+
+      // אם כבר קרוב לכותרת – עלה לגמרי למעלה
+      if (Math.abs(currentY - targetY) < 150) {
+        smoothScrollTo(0, 600);
+      } else {
+        smoothScrollTo(targetY, 600);
+      }
+    } else {
+      smoothScrollTo(0, 600);
+    }
+  });
 })();
-
-// ==========================================
-// 2. Smart Scroll to Top Script
-// ==========================================
-// Get the button
-let mybutton = document.getElementById("myBtn");
-let formulasNavTarget = null;
-let lastClickTime = 0;
-
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
-}
-
-// Smart scroll function - checks if in formulas section
-function topFunction() {
-  // Get the formulas section and the navigation div inside it
-  let formulasSection = document.getElementById("formulas");
-  
-  if (!formulasSection) {
-    // If formulas section doesn't exist, just scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    return;
-  }
-  
-  // Get current scroll position
-  let currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
-  let formulasTop = formulasSection.getBoundingClientRect().top + currentScroll;
-  
-  // If we're above the formulas section, go directly to top
-  if (currentScroll < formulasTop) {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    return;
-  }
-  
-  // Find the navigation div (the one with flex and gap: 12px)
-  let navDiv = formulasSection.querySelector('div.chapter-header.ch-formulas');
-  
-  if (!navDiv) {
-    // Fallback: just scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    return;
-  }
-  
-  let navPosition = navDiv.getBoundingClientRect().top + currentScroll;
-  
-  // If we're already at the navigation, go to top. Otherwise, go to navigation
-  if (Math.abs(currentScroll - navPosition) < 100) {
-    // We're already near the nav, go to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  } else {
-    // Go to navigation
-    navDiv.scrollIntoView({ behavior: 'smooth' });
-  }
-}
 </script>
-</body>
-</html>
 </html>
