@@ -1642,24 +1642,22 @@
   border-radius: 25%;
   cursor: pointer;
   color: white;
-  background-color: #1a3a5c;
-  opacity: 0.6;
+background-color: #1a3a5c;
+  opacity: 0.5;
   transition: opacity 0.3s ease, background-color 0.4s ease, transform 0.2s ease;
   line-height: 1;
+  /* מונע קפיצת layout בגלל סרגל כתובות במובייל */
+  will-change: transform;
+  -webkit-tap-highlight-color: transparent;
 }
-
-/* כשנמצאים בפרק הנוסחאות – כחול ושקוף יותר */
 #myBtn.in-formulas {
-  
   background-color: rgb(122, 98, 98);
-  opacity: 0.6;
+  opacity: 0.5;
 }
-
 #myBtn:hover {
   opacity: 1 !important;
   transform: scale(1.08);
 }
-
 #myBtn.in-formulas:hover {
   background-color: #2563a8;
 }
@@ -1667,7 +1665,8 @@
 
 <script>
 (function () {
-  // ── MathJax Wrapping ──────────────────────────────────
+
+  /* ── MathJax Wrapping ─────────────────────────────── */
   function wrapMath() {
     document.querySelectorAll('mjx-container[display="true"]').forEach(function (el) {
       if (el.parentNode && el.parentNode.classList.contains('math-scroll')) return;
@@ -1687,29 +1686,38 @@
     setTimeout(wrapMath, 2000);
   });
 
-  // ── Smooth Scroll Helper ──────────────────────────────
-  // משתמש ב-requestAnimationFrame לגלילה חלקה בכל דפדפן
-  function smoothScrollTo(targetY, duration) {
-    var startY = window.pageYOffset;
-    var diff = targetY - startY;
-    var startTime = null;
-
-    function easeInOutQuad(t) {
-      return t < 0.1 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-    }
-
-    function step(timestamp) {
-      if (!startTime) startTime = timestamp;
-      var elapsed = timestamp - startTime;
-      var progress = Math.min(elapsed / duration, 1);
-      window.scrollTo(0, startY + diff * easeInOutQuad(progress));
-      if (elapsed < duration) requestAnimationFrame(step);
-    }
-
-    requestAnimationFrame(step);
+  /* ── Smooth Scroll ────────────────────────────────── */
+  function easeInOutQuad(t) {
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
   }
 
-  // ── Button Logic ──────────────────────────────────────
+  function smoothScrollTo(targetY, duration) {
+    /*
+     * THE FIX: requestAnimationFrame מריץ את הפונקציה אחרי שהדפדפן
+     * סיים לעבד את האירוע (כולל כיווץ/הרחבת סרגל הכתובות במובייל).
+     * רק אז מצלמים את startY – כך אנחנו יודעים את המיקום האמיתי.
+     */
+    requestAnimationFrame(function () {
+      var startY    = window.pageYOffset;  /* נקרא אחרי שה-viewport התייצב */
+      var diff      = targetY - startY;
+      var startTime = null;
+
+      /* אם כבר שם – אין מה לעשות */
+      if (Math.abs(diff) < 2) return;
+
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        var elapsed  = timestamp - startTime;
+        var progress = Math.min(elapsed / duration, 1);
+        window.scrollTo(0, startY + diff * easeInOutQuad(progress));
+        if (elapsed < duration) requestAnimationFrame(step);
+      }
+
+      requestAnimationFrame(step);
+    });
+  }
+
+  /* ── Button Logic ─────────────────────────────────── */
   var btn = document.getElementById('myBtn');
 
   function isInFormulas() {
@@ -1719,12 +1727,8 @@
   }
 
   window.addEventListener('scroll', function () {
-    var scrolled = window.pageYOffset;
+    btn.style.display = window.pageYOffset > 200 ? 'block' : 'none';
 
-    // הצג/הסתר
-    btn.style.display = scrolled > 200 ? 'block' : 'none';
-
-    // צבע + tooltip לפי מיקום
     if (isInFormulas()) {
       btn.classList.add('in-formulas');
       btn.title = 'חזור לתחילת דף הנוסחאות';
@@ -1732,28 +1736,28 @@
       btn.classList.remove('in-formulas');
       btn.title = 'חזור לראש העמוד';
     }
-  });
+  }, { passive: true });
 
   btn.addEventListener('click', function () {
     var formulasSection = document.getElementById('formulas');
-    var currentY = window.pageYOffset;
 
     if (isInFormulas() && formulasSection) {
-      var header = formulasSection.querySelector('.chapter-header');
-      var targetY = header
-        ? header.getBoundingClientRect().top + currentY - 8
+      var header  = formulasSection.querySelector('.chapter-header');
+      var headerY = header
+        ? header.getBoundingClientRect().top + window.pageYOffset - 8
         : 0;
 
-      // אם כבר קרוב לכותרת – עלה לגמרי למעלה
-      if (Math.abs(currentY - targetY) < 150) {
+      /* אם כבר ממש קרוב לכותרת – עלה לגמרי לראש */
+      if (Math.abs(window.pageYOffset - headerY) < 150) {
         smoothScrollTo(0, 600);
       } else {
-        smoothScrollTo(targetY, 600);
+        smoothScrollTo(headerY, 600);
       }
     } else {
       smoothScrollTo(0, 600);
     }
   });
+
 })();
 </script>
 </html>
